@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="平陆运河智能科普网站高保真单页原型" />
+  <title>平陆运河 · 向海而生</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="返回首页">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>
+        <div class="brand-title">平陆运河</div>
+        <div class="brand-sub">PINGLU CANAL · DIGITAL SCIENCE</div>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#history">建设历程</a>
+      <a href="#navigation">通航节点</a>
+      <a href="#regions">沿线概况</a>
+      <a href="#engineering">工程奇迹</a>
+      <a href="#strategy">战略价值</a>
+    </nav>
+    <button class="nav-action" onclick="document.querySelector('#ai').scrollIntoView({behavior:'smooth'})">问问运河 AI</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="shell hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">西部陆海新通道骨干工程</div>
+          <h1>一河贯通<br>向海而生<span class="thin">读懂 134.2 公里的平陆运河</span></h1>
+          <p class="hero-copy">从西江水系横向转身，穿越岭南分水岭，再沿钦江奔赴北部湾。平陆运河以三大梯级枢纽连接江与海，也重塑广西和西南腹地的出海路径。</p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="document.querySelector('#navigation').scrollIntoView({behavior:'smooth'})">开始沿河探索</button>
+            <button class="btn-secondary" onclick="document.querySelector('#regions').scrollIntoView({behavior:'smooth'})">查看沿线县区</button>
+          </div>
+        </div>
+        <div class="hero-card reveal" aria-label="平陆运河在广西的区位示意">
+          <div class="hero-map">
+            <img src="images/guangxi-overview.png" alt="平陆运河在广西全境及西江流域的区位示意图" />
+            <div class="hero-map-caption">平陆运河 · 广西区位示意</div>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric"><strong>134.2</strong><span>公里 · 全线长度</span></div>
+            <div class="metric"><strong>5000</strong><span>吨级 · 通航能力</span></div>
+            <div class="metric"><strong>≈65</strong><span>米 · 总体水位差</span></div>
+            <div class="metric"><strong>3</strong><span>座 · 梯级枢纽</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="history">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">HISTORY · 建设历程</div>
+            <h2 class="section-title">一条运河，<br>走了百年的构想</h2>
+          </div>
+          <p class="section-desc">从孙中山先生《建国方略》里的出海口设想，到 2026 年全线建成通航，平陆运河跨越了一个多世纪。这段历程，是一部从“纸上设想”到“通江达海”的国家工程史。</p>
+        </div>
+
+        <div class="history-eras">
+          <div class="history-era reveal">
+            <span class="era-tag">阶段一 · 百年构想</span>
+            <h3>从孙中山的设想，到国家战略</h3>
+            <div class="era-sub">20 世纪初 — 2022 年 7 月</div>
+            <div class="timeline">
+              <div class="tl-item"><div class="tl-date">20 世纪初</div><div class="tl-text"><strong>孙中山</strong>在《建国方略》中充分肯定南宁、钦州的水运地位，设想以钦州为重要出海口。</div></div>
+              <div class="tl-item"><div class="tl-date">1985 年起</div><div class="tl-text">平陆运河相继纳入国家相关规划，持续开展多轮研讨、勘察与调研。</div></div>
+              <div class="tl-item"><div class="tl-date">2013 年</div><div class="tl-text">国务院批复《珠江流域综合规划》，明确平陆运河规划航道等级为 <strong>Ⅰ级</strong>。</div></div>
+              <div class="tl-item"><div class="tl-date">2019 年</div><div class="tl-text">国家发展改革委印发《西部陆海新通道总体规划》，提出“推进沟通广西西江至北部湾港的平陆运河研究论证”。</div></div>
+              <div class="tl-item"><div class="tl-date">2021 年</div><div class="tl-text">《国家综合立体交通网规划纲要》将平陆运河纳入“四纵四横两网”国家高等级航道布局；同年 9 月明确由广西审批项目。</div></div>
+              <div class="tl-item"><div class="tl-date">2022 年 7 月</div><div class="tl-text">项目建议书、可行性研究报告相继获批复，<strong>平陆运河正式立项</strong>。</div></div>
+            </div>
+          </div>
+
+          <div class="history-era reveal">
+            <span class="era-tag">阶段二 · 开工建设</span>
+            <h3>四年攻坚，劈开岭南分水岭</h3>
+            <div class="era-sub">2022 年 8 月 — 2025 年</div>
+            <div class="timeline">
+              <div class="tl-item"><div class="tl-date">2022 年 8 月 28 日</div><div class="tl-text">正式开工，工程概算约 <strong>727 亿元</strong>，建设工期 52 个月。</div></div>
+              <div class="tl-item"><div class="tl-date">2023 年 5 月 23 日</div><div class="tl-text">全线动工建设；三大枢纽全面进入主体结构施工。</div></div>
+              <div class="tl-item"><div class="tl-date">开工两周年</div><div class="tl-text">实现投资和土石方开挖量“<strong>双过半</strong>”。</div></div>
+              <div class="tl-item"><div class="tl-date">开工三周年</div><div class="tl-text">土石方开挖和船闸主体混凝土浇筑均超 <strong>92%</strong>，航道基本成型 81%，进入冲刺阶段。</div></div>
+              <div class="tl-item"><div class="tl-date">2025 年 10 月</div><div class="tl-text">累计完成投资超 <strong>608 亿元</strong>，连续 3 年超额完成建设计划。</div></div>
+            </div>
+          </div>
+
+          <div class="history-era reveal">
+            <span class="era-tag">阶段三 · 通航冲刺</span>
+            <h3>通水、联调、交工验收</h3>
+            <div class="era-sub">2026 年</div>
+            <div class="timeline">
+              <div class="tl-item"><div class="tl-date">2026 年 3 月</div><div class="tl-text">南宁段（全长 19.7 公里）顺利实现全线通水。</div></div>
+              <div class="tl-item"><div class="tl-date">2026 年 6 月 3 日</div><div class="tl-text">马道、企石枢纽开始充水，<strong>全线顺利通水</strong>，全面进入有水调试阶段。</div></div>
+              <div class="tl-item"><div class="tl-date">2026 年 8 月 7—8 日</div><div class="tl-text">广西海事局“海巡 1003”完成首次全航段巡航，自入海口经三座船闸抵达平塘江口。</div></div>
+              <div class="tl-item"><div class="tl-date">2026 年 8 月 12 日</div><div class="tl-text">启动首次全航道、全船型实船试验，调配 4 艘代表性船舶开展通航验证。</div></div>
+              <div class="tl-item"><div class="tl-date">2026 年 8 月 28 日</div><div class="tl-text">开工四周年之际，<strong>顺利通过交工验收</strong>。</div></div>
+              <div class="tl-item"><div class="tl-date">2026 年 9 月</div><div class="tl-text">计划<strong>全线建成通航</strong>。从开工到通航，仅用 4 年时间。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="navigation">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">NAVIGATION · 通航节点</div>
+            <h2 class="section-title">一艘 5000 吨级船，<br>怎样从西江驶向北部湾？</h2>
+          </div>
+          <p class="section-desc">不是翻越一面“65米高的水墙”，而是沿五段航道前进，并通过马道、企石、青年三座梯级枢纽逐级衔接水位。</p>
+        </div>
+        <div class="specs-grid reveal">
+          <div class="spec"><strong>6.3 <small>m</small></strong><span>设计水深 · 入海口近海段 6.5m</span></div>
+          <div class="spec"><strong>80→130 <small>m</small></strong><span>航宽 · 起点 80m 加宽至入海 130m</span></div>
+          <div class="spec"><strong>8900 <small>万吨</small></strong><span>设计年单向通过能力</span></div>
+          <div class="spec"><strong>584.6 <small>万 m³</small></strong><span>船闸主体混凝土浇筑量</span></div>
+        </div>
+
+        <div class="sections-map-layout reveal">
+          <div class="sections-map">
+            <img src="images/canal-sections.png" alt="平陆运河五大航段走向示意：沙坪河段、分水岭段、钦江干流段、钦江城区段、入海口近海段" />
+            <div class="sections-map-caption">平陆运河 · 五大航段走向</div>
+          </div>
+          <div class="sections-list">
+            <div class="sections-list-title">五大航段速览</div>
+            <div class="sec-row"><span class="sec-no">01</span><div><strong>沙坪河段</strong><p>依托沙坪河拓宽挖深、裁弯取直。从天然水系进入运河工程段，开启向南的水上通道。</p></div><span class="sec-len">21 km</span></div>
+            <div class="sec-row"><span class="sec-no">02</span><div><strong>分水岭段</strong><p>全线咽喉，劈开岭南分水岭。运河穿越原本分隔西江水系与钦江水系的岭南丘陵，是工程难度最集中的区域之一。</p></div><span class="sec-len">29.5 km</span></div>
+            <div class="sec-row"><span class="sec-no">03</span><div><strong>钦江干流段</strong><p>利用钦江河道浚深、拓宽。船舶沿钦江继续向南，运河由穿岭工程段逐步进入河谷、乡镇与城市空间。</p></div><span class="sec-len">48.5 km</span></div>
+            <div class="sec-row"><span class="sec-no">04</span><div><strong>钦江城区段</strong><p>穿钦州中心城区而过。水道从穿岭工程段逐步进入城市空间，运河与城镇生活交织共生。</p></div><span class="sec-len">21.46 km</span></div>
+            <div class="sec-row"><span class="sec-no">05</span><div><strong>入海口近海段</strong><p>经茅尾海接入钦州港东航道。是江海联运的交接段，最终直入北部湾。</p></div><span class="sec-len">14 km</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="regions">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">REGIONS · 沿线城市与区域</div>
+            <h2 class="section-title">一条运河，<br>串起五座城、穿过四个县区</h2>
+          </div>
+          <p class="section-desc">平陆运河自南宁横州平塘江口起、经钦州注入北部湾，串起南宁、钦州、贵港、北海、防城港五座城市，形成“一河带五市”的经济带骨架；运河主航道则直接穿过横州市、灵山县、钦北区、钦南区四个县级单元。下图为交互科普示意，不作为工程测绘或导航依据。</p>
+        </div>
+
+        <button class="canal-trigger reveal" id="canalTrigger" type="button" aria-haspopup="dialog" aria-controls="canalModal">
+          <span class="ct-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path d="M4 4v16h16V4H4zm13 5.5-4.5 3-2-1.3-3.5 2.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="8.5" r="1.4" fill="currentColor"/><circle cx="15.5" cy="14.5" r="1.4" fill="currentColor"/></svg>
+          </span>
+          <span class="ct-text">
+            <strong>查看沿线全景关系图</strong>
+            <em>一张图看懂「城市 · 县区 · 枢纽」的空间关系</em>
+          </span>
+          <span class="ct-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <div class="canal-modal" id="canalModal" role="dialog" aria-modal="true" aria-label="平陆运河沿线全景关系图" hidden>
+          <div class="canal-modal-mask" data-close-modal></div>
+          <div class="canal-overview-map">
+            <button class="modal-close" data-close-modal aria-label="关闭">✕</button>
+            <div class="com-head">
+              <div>
+                <div class="com-kicker">INTERACTIVE DIAGRAM · 沿线全景</div>
+                <h3>一张关系图，看懂「城市—县区—枢纽」的空间关系</h3>
+              </div>
+              <div class="com-legend">
+                <span><i class="lg-dot city"></i>五市（经济带）</span>
+                <span><i class="lg-dot county"></i>四县区（主航道）</span>
+                <span><i class="lg-dot hub"></i>三枢纽</span>
+                <span><i class="lg-line"></i>运河主线</span>
+              </div>
+            </div>
+            <div class="com-body">
+              <div class="com-map-stage">
+                <svg class="canal-diagram" viewBox="0 0 760 860" role="img" aria-label="平陆运河沿线全景关系示意图">
+                <defs>
+                  <linearGradient id="comCanalGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#86eff0"/>
+                    <stop offset="50%" stop-color="#37c0ca"/>
+                    <stop offset="100%" stop-color="#1c6f9c"/>
+                  </linearGradient>
+                  <radialGradient id="comSeaGrad" cx="50%" cy="0%" r="90%">
+                    <stop offset="0%" stop-color="#1887a2" stop-opacity=".5"/>
+                    <stop offset="100%" stop-color="#0b3248" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+
+                <!-- 北部湾海域（底部） -->
+                <path class="com-sea" d="M0,790 C140,750 300,745 380,760 C460,775 620,770 760,745 L760,860 L0,860 Z" />
+
+                <!-- 外围城市（贵港/北海/防城港）虚线连线 -->
+                <path class="com-link-dash" d="M380,120 C240,150 210,210 210,270" />
+                <path class="com-link-dash" d="M380,120 C300,160 320,210 330,260" />
+
+                <!-- 运河主线 -->
+                <path class="com-canal-line" d="M380,90 C378,150 385,195 382,250 C379,305 386,350 383,405 C380,460 387,510 384,560 C382,610 386,660 383,710 C382,745 380,770 380,795" />
+                <circle class="com-canal-glow" cx="380" cy="90" r="6"/>
+                <circle class="com-canal-glow" cx="380" cy="795" r="6"/>
+
+                <!-- 起点：平塘江口 -->
+                <g class="com-node com-node-start" data-key="pingtang">
+                  <circle cx="380" cy="90" r="9"/>
+                  <text x="380" y="52" text-anchor="middle" class="com-node-name">平塘江口</text>
+                  <text x="380" y="116" text-anchor="middle" class="com-node-sub">西江 → 运河起点</text>
+                </g>
+
+                <!-- 枢纽：马道 -->
+                <g class="com-hub" data-key="madao">
+                  <rect x="364" y="230" width="32" height="22" rx="4"/>
+                  <line x1="364" y1="241" x2="396" y2="241"/>
+                  <text x="352" y="224" text-anchor="end" class="com-hub-name">马道枢纽</text>
+                  <text x="352" y="264" text-anchor="end" class="com-hub-sub">水头 29.6m</text>
+                </g>
+
+                <!-- 枢纽：企石 -->
+                <g class="com-hub" data-key="qishi">
+                  <rect x="364" y="330" width="32" height="22" rx="4"/>
+                  <line x1="364" y1="341" x2="396" y2="341"/>
+                  <text x="408" y="324" text-anchor="start" class="com-hub-name">企石枢纽</text>
+                  <text x="408" y="364" text-anchor="start" class="com-hub-sub">水头 27m</text>
+                </g>
+
+                <!-- 枢纽：青年 -->
+                <g class="com-hub" data-key="qingnian">
+                  <rect x="364" y="560" width="32" height="22" rx="4"/>
+                  <line x1="364" y1="571" x2="396" y2="571"/>
+                  <text x="352" y="554" text-anchor="end" class="com-hub-name">青年枢纽</text>
+                  <text x="352" y="594" text-anchor="end" class="com-hub-sub">水头 10.32m</text>
+                </g>
+
+                <!-- 县区色块（沿主线） -->
+                <g class="com-county" data-key="hengzhou">
+                  <ellipse cx="380" cy="150" rx="86" ry="34" />
+                  <text x="380" y="146" text-anchor="middle" class="com-county-name">横州市</text>
+                  <text x="380" y="164" text-anchor="middle" class="com-county-sub">运河起点 · 南宁下辖</text>
+                </g>
+                <g class="com-county" data-key="lingshan">
+                  <ellipse cx="380" cy="305" rx="86" ry="34" />
+                  <text x="380" y="301" text-anchor="middle" class="com-county-name">灵山县</text>
+                  <text x="380" y="319" text-anchor="middle" class="com-county-sub">穿岭核心 · 马道企石</text>
+                </g>
+                <g class="com-county" data-key="qinbei">
+                  <ellipse cx="380" cy="445" rx="86" ry="34" />
+                  <text x="380" y="441" text-anchor="middle" class="com-county-name">钦北区</text>
+                  <text x="380" y="459" text-anchor="middle" class="com-county-sub">钦江中游 · 城乡过渡</text>
+                </g>
+                <g class="com-county" data-key="qinnan">
+                  <ellipse cx="380" cy="625" rx="86" ry="34" />
+                  <text x="380" y="621" text-anchor="middle" class="com-county-name">钦南区</text>
+                  <text x="380" y="639" text-anchor="middle" class="com-county-sub">江海门户 · 青年枢纽</text>
+                </g>
+
+                <!-- 入海口节点 -->
+                <g class="com-node" data-key="maowei">
+                  <circle cx="380" cy="720" r="8"/>
+                  <text x="380" y="750" text-anchor="middle" class="com-node-name">茅尾海</text>
+                  <text x="380" y="766" text-anchor="middle" class="com-node-sub">近海段 → 钦州港</text>
+                </g>
+                <g class="com-node" data-key="qinzhougang">
+                  <circle cx="380" cy="810" r="8"/>
+                  <text x="380" y="840" text-anchor="middle" class="com-node-name">钦州港 · 北部湾</text>
+                </g>
+
+                <!-- 外围城市：南宁（顶部，起点城市） -->
+                <g class="com-city com-city-main" data-key="nanning">
+                  <circle cx="380" cy="30" r="11"/>
+                  <text x="408" y="26" text-anchor="start" class="com-city-name">南宁市</text>
+                  <text x="408" y="42" text-anchor="start" class="com-city-sub">首府 · 起点门户</text>
+                </g>
+
+                <!-- 外围城市：钦州（底部，入海城市） -->
+                <g class="com-city com-city-main" data-key="qinzhou">
+                  <circle cx="380" cy="778" r="11" transform="translate(0,-14)"/>
+                  <text x="352" y="788" text-anchor="end" class="com-city-name">钦州市</text>
+                  <text x="352" y="804" text-anchor="end" class="com-city-sub">入海口 · 滨海城市</text>
+                </g>
+
+                <!-- 外围城市：贵港（左侧，西江中转，虚线） -->
+                <g class="com-city com-city-off" data-key="guigang">
+                  <circle cx="210" cy="270" r="11"/>
+                  <text x="182" y="266" text-anchor="end" class="com-city-name">贵港市</text>
+                  <text x="182" y="282" text-anchor="end" class="com-city-sub">西江中转 · 错位</text>
+                </g>
+
+                <!-- 外围城市：北海（右下，错位，虚线） -->
+                <g class="com-city com-city-off" data-key="beihai">
+                  <circle cx="620" cy="690" r="11"/>
+                  <text x="648" y="686" text-anchor="start" class="com-city-name">北海市</text>
+                  <text x="648" y="702" text-anchor="start" class="com-city-sub">向海经济 · 错位</text>
+                </g>
+
+                <!-- 外围城市：防城港（左下，错位，虚线） -->
+                <g class="com-city com-city-off" data-key="fangchenggang">
+                  <circle cx="150" cy="700" r="11"/>
+                  <text x="122" y="696" text-anchor="end" class="com-city-name">防城港市</text>
+                  <text x="122" y="712" text-anchor="end" class="com-city-sub">临港工业 · 错位</text>
+                </g>
+
+                <!-- 北海/防城港 到钦州港的虚线关联 -->
+                <path class="com-link-dash" d="M620,690 C560,720 460,730 396,800" />
+                <path class="com-link-dash" d="M150,700 C240,720 340,740 372,800" />
+              </svg>
+            </div>
+            <aside class="com-info" id="canalInfoCard">
+              <button class="com-close" id="canalInfoClose" aria-label="关闭">✕</button>
+              <span class="com-tag" id="coTag">城市</span>
+              <h4 id="coTitle"></h4>
+              <div class="com-role" id="coRole"></div>
+              <div class="com-stat" id="coStat"></div>
+              <div class="com-block" id="coIndustriesBlock" style="display:none;">
+                <div class="com-label">主导产业</div>
+                <div class="com-industries" id="coIndustries"></div>
+              </div>
+              <div class="com-block" id="coDescBlock" style="display:none;">
+                <div class="com-label">简介 / 定位</div>
+                <div class="com-desc" id="coDesc"></div>
+              </div>
+              <div class="com-block">
+                <div class="com-label">快捷查看</div>
+                <div class="com-tabs" id="coTabs"></div>
+              </div>
+            </aside>
+          </div>
+            <div class="com-disclaimer">本图为科普交互示意图，用于展示运河沿线城市、县区与枢纽的相对空间关系，不作为工程测绘、航行导航或行政边界认定依据。</div>
+          </div>
+        </div>
+
+        <div class="cities-map reveal">
+          <h3>“一河带五市”经济带格局</h3>
+          <p class="cities-sub">运河经济带建设以国土空间治理、港产城融合、生态保护修复为主线，推动沿线城市在自治区“叶脉式”向海产业布局中各展所长、错位发展。</p>
+          <div class="specs-grid">
+            <div class="spec"><strong>南宁</strong><span>源头门户 · 起点段 19.7km</span></div>
+            <div class="spec"><strong>钦州</strong><span>江海联运枢纽 · 出海口门户</span></div>
+            <div class="spec"><strong>贵港</strong><span>西江黄金水道中转枢纽</span></div>
+            <div class="spec"><strong>北海 · 防城港</strong><span>外海远洋与临港配套枢纽</span></div>
+          </div>
+        </div>
+
+        <div class="city-grid">
+          <article class="city-card reveal">
+            <div class="city-no">CITY 01 · 南宁</div>
+            <h4>南宁市</h4>
+            <div class="city-role">运河起点 · 首府核心</div>
+            <div class="city-gdp">6212.46<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>数字经济</span><span>科创服务</span><span>现代金融</span><span>新能源电池</span><span>精细化工新材料</span><span>茉莉花深加工</span></div>
+            </div>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>源头门户、流域协同治理示范区、港产城融合先行样板；作为运河起点段，承担水质第一道防线、临港产业承载、城乡协同发展三重使命。</p>
+            </div>
+          </article>
+
+          <article class="city-card reveal">
+            <div class="city-no">CITY 02 · 钦州</div>
+            <h4>钦州市</h4>
+            <div class="city-role">运河入海口 · 滨海运河城市</div>
+            <div class="city-gdp">1907.61<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>绿色化工</span><span>新材料</span><span>粮油食品加工</span><span>装备制造</span><span>海洋产业</span><span>江海联运</span></div>
+            </div>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>江海联运枢纽、出海口门户、港产城融合示范；作为运河入海段，承担江海衔接、临港产业集聚、陆海通道联通功能。</p>
+            </div>
+          </article>
+
+          <article class="city-card reveal">
+            <div class="city-no">CITY 03 · 贵港</div>
+            <h4>贵港市</h4>
+            <div class="city-role">运河枢纽 · 能源门户</div>
+            <div class="city-gdp">1628.44<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>木业家居</span><span>绿色化工</span><span>冶金建材</span><span>现代纸业</span><span>能源电力</span><span>富硒农业</span></div>
+            </div>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>西江黄金水道重要节点、运河经济带内河中转枢纽、临港产业集聚高地；依托西江干线衔接平陆运河，承担内河中转、大宗货物集散功能。</p>
+            </div>
+          </article>
+
+          <article class="city-card reveal">
+            <div class="city-no">CITY 04 · 北海</div>
+            <h4>北海市</h4>
+            <div class="city-role">向海经济 · 临港工业</div>
+            <div class="city-gdp">1974.04<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>电子信息</span><span>绿色化工</span><span>硅基新材料</span><span>海工装备</span><span>滨海旅游</span><span>海洋渔业</span></div>
+            </div>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>经济带外海远洋枢纽、临港产业配套高地；不直接位于运河主航道，立足错位发展，承接运河带来的西南内陆腹地货源。</p>
+            </div>
+          </article>
+
+          <article class="city-card reveal">
+            <div class="city-no">CITY 05 · 防城港</div>
+            <h4>防城港市</h4>
+            <div class="city-role">临港工业 · 门户枢纽</div>
+            <div class="city-gdp">1201.26<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>先进钢铁</span><span>有色金属</span><span>新型能源</span><span>新材料</span><span>面向东盟口岸贸易</span><span>海洋渔业</span></div>
+            </div>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>西部陆海新通道重要配套枢纽、沿海沿边临港产业高地；以江海联运衔接、大宗商品中转为核心，承接运河内陆货源。</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="region-bridge reveal">
+          <span class="bridge-label">层级说明</span>
+          <h3>五座城市是“经济带的骨架”，四个县区是“运河穿过的血肉”</h3>
+          <p>上面的五座地级市，是平陆运河带来的区域协同与发展骨架；而运河主航道真正直接穿过的，是下面四个县级单元——横州市、灵山县、钦北区、钦南区。点击县区，看看运河具体经过了哪些地方。</p>
+        </div>
+
+        <div class="regions-layout">
+          <div class="map-card reveal">
+            <div class="map-toolbar">
+              <div class="region-tabs" id="regionTabs"></div>
+              <div class="map-note">交互示意图 · 点击县区查看概况</div>
+            </div>
+            <div class="map-stage">
+              <svg viewBox="0 0 760 620" role="img" aria-label="平陆运河沿线县区交互示意图">
+                <defs>
+                  <linearGradient id="canalGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#86eff0"/>
+                    <stop offset="52%" stop-color="#37c0ca"/>
+                    <stop offset="100%" stop-color="#1c6f9c"/>
+                  </linearGradient>
+                  <radialGradient id="seaGradient" cx="50%" cy="10%" r="90%">
+                    <stop offset="0%" stop-color="#1887a2" stop-opacity=".65"/>
+                    <stop offset="100%" stop-color="#0b3248" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+
+                <path class="sea-glow" d="M370,507 C455,484 573,480 725,530 L760,620 L270,620 C305,571 327,536 370,507Z" />
+
+                <path id="hengzhou" class="region-shape" data-region="hengzhou" d="M208,36 C294,17 362,44 392,101 C410,135 394,167 363,195 C332,223 255,224 188,195 C133,170 119,109 151,66 C164,49 185,42 208,36Z"/>
+                <path id="lingshan" class="region-shape" data-region="lingshan" d="M291,197 C365,167 466,177 510,238 C541,282 520,347 475,389 C441,421 373,428 314,398 C250,366 239,304 258,250 C266,226 278,210 291,197Z"/>
+                <path id="qinbei" class="region-shape" data-region="qinbei" d="M405,384 C475,352 567,370 607,424 C636,464 616,511 571,541 C531,567 455,558 412,522 C371,487 368,433 405,384Z"/>
+                <path id="qinnan" class="region-shape" data-region="qinnan" d="M488,506 C551,479 657,497 709,548 C728,566 735,590 728,620 L383,620 C390,583 422,536 488,506Z"/>
+
+                <path class="canal-svg" id="canalBase" d="M245,86 C255,129 299,151 315,195 C326,226 324,255 341,286 C359,319 393,334 419,365 C445,395 461,423 482,455 C504,486 537,505 550,541 C561,568 575,589 602,615" />
+                <path class="canal-highlight" id="canalHighlight" d="M245,86 C255,129 299,151 315,195 C326,226 324,255 341,286 C359,319 393,334 419,365 C445,395 461,423 482,455 C504,486 537,505 550,541 C561,568 575,589 602,615" />
+
+                <text class="map-label" x="166" y="116">横州市</text><text class="map-sub" x="166" y="136">运河起点</text>
+                <text class="map-label" x="354" y="276">灵山县</text><text class="map-sub" x="354" y="296">穿岭核心区</text>
+                <text class="map-label" x="478" y="456">钦北区</text><text class="map-sub" x="478" y="476">钦江腹地</text>
+                <text class="map-label" x="560" y="562">钦南区</text><text class="map-sub" x="560" y="582">江海门户</text>
+
+                <g class="node-group" data-node="pingtang"><circle class="node-ring" cx="245" cy="86" r="11"/><circle class="node-dot" cx="245" cy="86" r="6"/><text class="map-sub" x="262" y="82">平塘江口</text></g>
+                <g class="node-group" data-node="madao"><circle class="node-ring" cx="349" cy="303" r="11"/><circle class="node-dot" cx="349" cy="303" r="6"/><text class="map-sub" x="366" y="299">马道</text></g>
+                <g class="node-group" data-node="qishi"><circle class="node-ring" cx="403" cy="348" r="11"/><circle class="node-dot" cx="403" cy="348" r="6"/><text class="map-sub" x="420" y="344">企石</text></g>
+                <g class="node-group" data-node="qingnian"><circle class="node-ring" cx="542" cy="527" r="11"/><circle class="node-dot" cx="542" cy="527" r="6"/><text class="map-sub" x="560" y="522">青年</text></g>
+                <text class="map-sub" x="604" y="606">北部湾 ↓</text>
+              </svg>
+            </div>
+          </div>
+
+          <aside class="region-panel reveal" aria-live="polite">
+            <div class="region-code" id="regionCode">REGION 01</div>
+            <h3 class="region-title" id="regionTitle">横州市</h3>
+            <div class="region-role" id="regionRole">西江之畔 · 运河起点</div>
+            <p class="region-overview" id="regionOverview"></p>
+            <div class="region-facts" id="regionFacts"></div>
+            <div class="region-tags" id="regionTags"></div>
+            <div class="story-box">
+              <small>沿河故事</small>
+              <h4 id="storyTitle"></h4>
+              <p id="storyText"></p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="engineering">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">ENGINEERING · 工程奇迹</div>
+            <h2 class="section-title">看得见的大工程，<br>看不见的水与生态算法</h2>
+          </div>
+          <p class="section-desc">这里不只展示“大”，更解释工程为什么这样设计：高水头、省水、土石方综合利用、跨河桥梁与生态通道共同组成完整的运河系统。</p>
+        </div>
+        <div class="miracles">
+          <article class="miracle-card reveal"><div class="miracle-num">01 · 省水船闸</div><h3>三次“水上电梯”</h3><p>三大梯级枢纽均采用双线 5000 吨级船闸。马道、企石通过三级省水池回收和复用水体。</p><div class="miracle-stat">300 × 34 × 8 <small>m</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">02 · 高水头</div><h3>马道：29.6 米</h3><p>第一梯级承担大幅水位衔接，形成世界级高水头内河省水船闸工程。</p><div class="miracle-stat">29.6 <small>m</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">03 · 省水技术</div><h3>把一次用水，变成循环用水</h3><p>马道、企石省水率约 60%；青年通过双线互灌互泄节约约一半船闸运行用水。</p><div class="miracle-stat">≈60 <small>%</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">04 · 土石方</div><h3>3.15 亿立方米去了哪里？</h3><p>大规模开挖后的土石方被分类用于工程利用、抬填造地、园区回填、绿色建材和土地复垦。</p><div class="miracle-stat">3.15 <small>亿 m³</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">05 · 百桥工程</div><h3>运河改变水路，也重构陆路</h3><p>沿线建设涉及 104 座桥梁，其中 27 座跨越运河主航道，维持两岸交通连续性。</p><div class="miracle-stat">27 <small>跨主航道桥</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">06 · 生态工程</div><h3>给鱼留路，也给红树林留空间</h3><p>青年枢纽设置生态鱼道；入海口迁移保护 9572 棵大龄红树林、异地恢复 27.5 万棵，36 处生态涵养区构成完整生态网络。</p><div class="miracle-stat">480+ <small>m 鱼道</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">07 · 数字孪生</div><h3>全国首个“数字孪生运河”</h3><p>大范围运用 BIM、无人机航测、无人船水下勘测、遥感监测、大体积混凝土智能温控，实现施工与生态监测全过程数字化管理。</p><div class="miracle-stat">全周期 <small>智慧管控</small></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="strategy">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">STRATEGY · 战略价值</div>
+            <h2 class="section-title">134.2 公里不长，<br>但它改变的是出海方向</h2>
+          </div>
+          <p class="section-desc">平陆运河把西江水系与北部湾直接连通，让广西以及西南地区拥有一条更加直接的江海联运通道。</p>
+        </div>
+        <div class="strategy-grid">
+          <article class="strategy-main reveal">
+            <h3>从“向东出海”到“向南出海”</h3>
+            <p>过去西江中上游部分货物经西江航运干线向东进入珠三角。平陆运河打通后，可经钦州港直接进入北部湾，形成新的江海联运路径。</p>
+            <div class="strategy-line"><span class="strategy-point"></span><span class="strategy-track"></span><span class="strategy-point"></span></div>
+            <div class="strategy-labels"><span>西江中上游</span><span>平陆运河</span><span>北部湾港</span></div>
+            <div class="strategy-number">560+ <small>km · 内河航程缩短约</small></div>
+          </article>
+          <div class="strategy-side">
+            <article class="strategy-mini reveal"><div class="num">5000</div><h4>吨级通航</h4><p>按内河Ⅰ级航道建设，形成大吨位船舶江海联运能力。</p></article>
+            <article class="strategy-mini reveal"><div class="num">727.3</div><h4>亿元投资</h4><p>超级工程背后是航道、枢纽、桥梁、生态和数字化的系统建设。</p></article>
+            <article class="strategy-mini reveal"><div class="num">52+</div><h4>亿元 / 年</h4><p>公开前期测算中，现有通道货运量转移可带来显著运输费用节约。</p></article>
+            <article class="strategy-mini reveal"><div class="num">1</div><h4>条新通道</h4><p>把西江航运体系、西部陆海新通道与北部湾港进一步连成网络。</p></article>
+          </div>
+        </div>
+
+        <div class="miracles" style="margin-top:26px">
+          <article class="miracle-card reveal"><div class="miracle-num">价值 · 交通</div><h3>改写西南水运格局</h3><p>西南货物经平陆运河出海，相比绕行广州港，内河航程缩短 560 公里以上，综合物流成本预计降低 18%—30%，构建“江—铁—海”多式联运体系。</p><div class="miracle-stat">560+ <small>km</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">价值 · 经济</div><h3>培育向海经济增长极</h3><p>以“通道带物流、物流带经贸、经贸带产业”，释放广西及云贵川渝内陆地区资源优势，打造港产城融合的经济廊道。</p><div class="miracle-stat">一河<small>带五市</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">价值 · 开放</div><h3>链接 RCEP 与东盟</h3><p>打通西南腹地直达北部湾的出海门户，深化中国—东盟产业链供应链合作，服务共建“一带一路”，提升西南地区开放能级。</p><div class="miracle-stat">双循环<small>战略链接</small></div></article>
+          <article class="miracle-card reveal"><div class="miracle-num">价值 · 治理</div><h3>国土空间治理样本</h3><p>“省水、护土、复绿”的系统解法——省水船闸循环用水、弃土 100% 综合利用新增近万亩耕地、36 处生态涵养区，为流域型重大工程提供经验参考。</p><div class="miracle-stat">98+ <small>% 土石方利用</small></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">AI GUIDE · 智能科普</div>
+            <h2 class="section-title">AI 不只回答，<br>还应该控制地图与专题</h2>
+          </div>
+          <p class="section-desc">当前原型先模拟“问题 → 内容 → 地图联动”。后续接入真实大模型时，可以把县区、工程节点和专题组件作为工具开放给 AI 调用。</p>
+        </div>
+        <div class="ai-block">
+          <div class="ai-intro reveal">
+            <span class="ai-chip">PINGLU AI · PROTOTYPE</span>
+            <h3>问问平陆运河</h3>
+            <p>点击示例问题。回答会同时触发相应县区高亮，展示“知识回答 + 地图定位”的交互方式。</p>
+            <div class="questions">
+              <button class="q-btn" data-question="madao">马道枢纽为什么被称为“水上电梯”？</button>
+              <button class="q-btn" data-question="regions">平陆运河直接经过哪些县区？</button>
+              <button class="q-btn" data-question="name">“平陆运河”这个名字从哪里来？</button>
+              <button class="q-btn" data-question="sea">运河从哪里进入北部湾？</button>
+            </div>
+          </div>
+          <div class="ai-demo reveal">
+            <div class="chat-head"><strong>平陆运河 AI 科普助手</strong><span class="chat-status">演示模式</span></div>
+            <div class="chat-body"><div class="chat-message" id="aiAnswer"><strong>你好，我可以带你沿河探索。</strong><br>试试左边的问题，例如“平陆运河经过哪些县区？”我会同时定位相应的互动地图。</div><div class="chat-actions" id="aiActions"><span class="chat-action">地图联动</span><span class="chat-action">工程数据</span><span class="chat-action">沿线知识</span></div></div>
+            <div class="chat-input"><input id="fakeInput" placeholder="输入问题（当前为交互原型）" /><button id="fakeSend">发送</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div class="source-note">资料底座依据前期整理的自治区政府、交通运输主管部门、自然资源主管部门、新华社等公开权威资料，以及《平陆运河-0908》整理稿。页面中的行政区地图为科普交互示意，不用于工程测绘、航行导航或行政边界认定。沿线五市 GDP 与产业数据为 2025 年公开口径，当前版本不包含实时工程状态更新。</div>
+      <div class="footer-mark">PINGLU<br>134.2</div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
