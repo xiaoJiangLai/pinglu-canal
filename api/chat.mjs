@@ -1,5 +1,5 @@
-// 平陆运河 AI 问答中转（Vercel Serverless Function · ESM）
-// 部署后访问路径：/api/chat（Vercel 自动去掉 .mjs 扩展名）
+// 平陆运河 AI 问答中转（Vercel Serverless Function · Node Runtime 标准写法）
+// 部署后访问路径：/api/chat
 // 环境变量：DEEPSEEK_API_KEY（Vercel → Settings → Environment Variables 配置）
 
 const SYSTEM_PROMPT = `你是"平陆运河 AI 科普助手"，面向普通公众介绍平陆运河工程。
@@ -72,96 +72,109 @@ function corsHeaders(origin) {
   };
 }
 
-function json(obj, status, origin) {
-  return new Response(JSON.stringify(obj), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      ...corsHeaders(origin),
-    },
-  });
+function json(res, obj, status, origin) {
+  res.statusCode = status;
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  for (const [k, v] of Object.entries(corsHeaders(origin))) {
+    res.setHeader(k, v);
+  }
+  res.end(JSON.stringify(obj));
 }
 
-export default {
-  async fetch(request) {
-    const origin = request.headers.get('origin') || '';
+// Vercel Node.js 函数标准签名：export default function handler(req, res)
+export default async function handler(req, res) {
+  const origin = req.headers['origin'] || '';
 
-    // CORS 预检
-    if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: corsHeaders(origin) });
+  // CORS 预检
+  if (req.method === 'OPTIONS') {
+    res.statusCode = 204;
+    for (const [k, v] of Object.entries(corsHeaders(origin))) {
+      res.setHeader(k, v);
     }
+    res.end();
+    return;
+  }
 
-    if (request.method !== 'POST') {
-      return json({ error: '仅支持 POST 请求' }, 405, origin);
+  if (req.method !== 'POST') {
+    return json(res, { error: '仅支持 POST 请求' }, 405, origin);
+  }
+
+  // 读取请求体（Vercel Node 函数的 req 默认是流式，需要手动收集）
+  let body = '';
+  try {
+    for await (const chunk of req) {
+      body += chunk;
     }
+  } catch (e) {
+    return json(res, { error: '读取请求体失败' }, 400, origin);
+  }
 
-    let payload;
-    try {
-      payload = await request.json();
-    } catch (e) {
-      return json({ error: '请求体必须是 JSON' }, 400, origin);
-    }
+  let payload;
+  try {
+    payload = JSON.parse(body || '{}');
+  } catch (e) {
+    return json(res, { error: '请求体必须是 JSON' }, 400, origin);
+  }
 
-    const message = (payload.message || '').trim();
-    if (!message) {
-      return json({ error: '缺少 message 字段' }, 400, origin);
-    }
+  const message = (payload.message || '').trim();
+  if (!message) {
+    return json(res, { error: '缺少 message 字段' }, 400, origin);
+  }
 
-    const history = Array.isArray(payload.history) ? payload.history : [];
+  const history = Array.isArray(payload.history) ? payload.history : [];
 
-    const apiKey = process.env.DEEPSEEK_API_KEY;
-    if (!apiKey) {
-      return json({ error: '服务端未配置 DEEPSEEK_API_KEY，请在 Vercel 环境变量中设置' }, 500, origin);
-    }
+  const apiKey = process.env.DEEPSEEK_API_KEY;
+  if (!apiKey) {
+    return json(res, { error: '服务端未配置 DEEPSEEK_API_KEY，请在 Vercel 环境变量中设置' }, 500, origin);
+  }
 
-    const messages = [
-      { role: 'system', content: SYSTEM_PROMPT },
-      ...history.filter((m) => m && (m.role === 'user' || m.role === 'assistant')).slice(-10),
-      { role: 'user', content: message },
-    ];
+  const messages = [
+    { role: 'system', content: SYSTEM_PROMPT },
+    ...history.filter((m) => m && (m.role === 'user' || m.role === 'assistant')).slice(-10),
+    { role: 'user', content: message },
+  ];
 
-    try {
-      const upstream = await fetch('https://api.deepseek.com/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + apiKey,
-        },
-        body: JSON.stringify({
-          model: 'deepseek-chat',
-          messages,
-          temperature: 0.7,
-          max_tokens: 800,
-          stream: false,
-        }),
-      });
+  try {
+    const upstream = await fetch('https://api.deepseek.com/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + apiKey,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages,
+        temperature: 0.7,
+        max_tokens: 800,
+        stream: false,
+      }),
+    });
 
-      const text = await upstream.text();
+    const text = await upstream.text();
 
-      if (!upstream.ok) {
-        let errMsg = '上游接口错误 ' + upstream.status;
-        try {
-          const j = JSON.parse(text);
-          errMsg = j.error?.message || j.error?.type || errMsg;
-        } catch (e) {}
-        return json({ error: errMsg }, 502, origin);
-      }
-
-      let answer = '';
+    if (!upstream.ok) {
+      let errMsg = '上游接口错误 ' + upstream.status;
       try {
         const j = JSON.parse(text);
-        answer = j.choices?.[0]?.message?.content || '';
-      } catch (e) {
-        return json({ error: '上游返回格式异常' }, 502, origin);
-      }
-
-      if (!answer) {
-        return json({ error: '上游未返回有效内容' }, 502, origin);
-      }
-
-      return json({ answer }, 200, origin);
-    } catch (e) {
-      return json({ error: '调用失败：' + (e.message || String(e)) }, 500, origin);
+        errMsg = j.error?.message || j.error?.type || errMsg;
+      } catch (e) {}
+      return json(res, { error: errMsg }, 502, origin);
     }
-  },
-};
+
+    let answer = '';
+    try {
+      const j = JSON.parse(text);
+      answer = j.choices?.[0]?.message?.content || '';
+    } catch (e) {
+      return json(res, { error: '上游返回格式异常' }, 502, origin);
+    }
+
+    if (!answer) {
+      return json(res, { error: '上游未返回有效内容' }, 502, origin);
+    }
+
+    return json(res, { answer }, 200, origin);
+  } catch (e) {
+    return json(res, { error: '调用失败：' + (e.message || String(e)) }, 500, origin);
+  }
+}
