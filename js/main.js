@@ -294,3 +294,31 @@ if(document.querySelector('.canal-diagram')){ initCanalOverviewDiagram(); }
     if(e.key==='Escape' && !modal.hidden) closeModal();
   });
 })();
+
+/* ===== 五市经济带 X 光地形图 灯箱 ===== */
+(function(){
+  const map=document.getElementById('beltMap');
+  if(!map) return;
+
+  const img=map.querySelector('img');
+  if(!img) return;
+
+  // 动态创建灯箱 DOM
+  const lightbox=document.createElement('div');
+  lightbox.className='eb-lightbox';
+  lightbox.setAttribute('role','dialog');
+  lightbox.setAttribute('aria-label','五市经济带地形图放大查看');
+  lightbox.innerHTML='<button class="lb-close" aria-label="关闭">✕</button><img src="'+img.getAttribute('src')+'" alt="'+img.getAttribute('alt')+'">';
+  document.body.appendChild(lightbox);
+
+  function open(){ lightbox.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lightbox.classList.remove('open'); document.body.style.overflow=''; }
+
+  map.addEventListener('click',open);
+  lightbox.addEventListener('click',e=>{
+    if(e.target===lightbox || e.target.classList.contains('lb-close')) close();
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape' && lightbox.classList.contains('open')) close();
+  });
+})();
