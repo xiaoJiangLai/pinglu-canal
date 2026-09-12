@@ -210,6 +210,11 @@ h1 .thin{display:block;color:#9ed5d9;font-weight:400;font-size:.47em;letter-spac
 .ai-demo{display:flex;flex-direction:column;min-height:400px}.chat-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(121,201,207,.1);padding-bottom:16px}.chat-status{font-size:11px;color:#7ebbc1}.chat-status::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#77e0bd;margin-right:7px;box-shadow:0 0 10px rgba(119,224,189,.8)}
 .chat-body{padding:24px 0;flex:1}.chat-message{max-width:85%;padding:16px 17px;border-radius:17px;background:rgba(116,218,223,.07);border:1px solid rgba(116,218,223,.11);line-height:1.75;color:#b9d7da;font-size:14px}.chat-message strong{color:#e9ffff}.chat-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.chat-action{font-size:11px;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.025);border:1px solid rgba(129,210,215,.11);color:#84b5ba}
 .chat-input{display:flex;gap:10px;border-top:1px solid rgba(121,201,207,.1);padding-top:16px}.chat-input input{flex:1;background:rgba(255,255,255,.025);border:1px solid rgba(129,211,216,.12);border-radius:14px;padding:13px 14px;color:white;outline:none}.chat-input button{border:none;border-radius:14px;background:#65d6db;color:#062126;padding:0 17px;font-weight:800;cursor:pointer}
+.chat-message.user{max-width:85%;margin-left:auto;background:rgba(101,214,219,.12);border-color:rgba(101,214,219,.22);color:#cdebed}
+.chat-message.assistant{margin-top:12px}
+.chat-message.assistant + .chat-message.assistant{margin-top:12px}
+.ai-cursor{display:inline-block;width:8px;height:16px;background:#77e0bd;vertical-align:middle;margin-left:4px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
 
 footer{padding:48px 0 58px;border-top:1px solid rgba(132,211,216,.1);color:#688f95;font-size:12px}.footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:flex-end}.source-note{max-width:780px;line-height:1.8}.footer-mark{font-size:32px;font-weight:900;color:#183d46;letter-spacing:-.06em}
 
@@ -229,30 +234,28 @@ footer{padding:48px 0 58px;border-top:1px solid rgba(132,211,216,.1);color:#688f
 .tl-text{color:#9cb9bd;font-size:14px;line-height:1.7}
 .tl-text strong{color:#e7f7f8}
 
-/* ===== 一河带五市 经济带 ===== */
-.cities-map{position:relative;border-radius:28px;border:1px solid rgba(125,210,215,.14);background:linear-gradient(180deg,rgba(12,39,49,.84),rgba(7,27,35,.88));padding:34px;margin-bottom:22px;overflow:hidden}
-.cities-map h3{margin:0 0 6px;font-size:26px}
-.cities-map .cities-sub{color:#7ea8ad;font-size:14px;line-height:1.7;max-width:820px}
-.city-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.city-card{border-radius:24px;border:1px solid rgba(127,209,214,.13);background:linear-gradient(160deg,rgba(17,50,62,.9),rgba(7,28,36,.83));padding:26px;position:relative;overflow:hidden;transition:.3s ease}
-.city-card:hover{transform:translateY(-5px);border-color:rgba(103,219,224,.26)}
-.city-card .city-no{font-size:11px;letter-spacing:.16em;color:#59b8c0}
-.city-card h4{font-size:22px;margin:14px 0 4px}
-.city-card .city-role{font-size:12px;color:#7fb7bd;margin-bottom:16px}
-.city-gdp{font-size:28px;font-weight:900;letter-spacing:-.04em;color:#d8ffff}.city-gdp small{font-size:12px;color:#72bfc6;font-weight:600;letter-spacing:0;margin-left:4px}
-.city-block{margin-top:16px}
-.city-block .block-label{font-size:11px;color:#6ebdc4;letter-spacing:.1em;margin-bottom:7px}
-.city-block p{font-size:13px;color:#92b2b7;line-height:1.7;margin:0}
-.city-industries{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
-.city-industries span{padding:6px 9px;border-radius:999px;background:rgba(114,215,220,.07);border:1px solid rgba(114,215,220,.11);color:#aed3d7;font-size:11px}
-.city-card--full{grid-column:1 / -1}
+/* ===== 沿线概况：五市经济带 X 光地形图 ===== */
+.economic-belt{position:relative;margin-bottom:34px}
+.eb-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:20px}
+.eb-head h3{margin:8px 0 0;font-size:24px;letter-spacing:-.02em}
+.eb-head .eb-sub{margin:0;color:#7ea8ad;font-size:14px;line-height:1.75;max-width:520px}
+.eb-map{margin:0;position:relative;border-radius:28px;border:1px solid rgba(125,210,215,.14);background:linear-gradient(180deg,rgba(12,39,49,.5),rgba(7,27,35,.72));overflow:hidden;cursor:zoom-in}
+.eb-map img{display:block;width:100%;height:auto;object-fit:contain;transition:transform .4s ease}
+.eb-map:hover img{transform:scale(1.02)}
+.eb-legend{display:flex;flex-wrap:wrap;gap:18px;padding:14px 22px;border-top:1px solid rgba(125,210,215,.12)}
+.eb-legend span{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#8fb1b6}
+.eb-legend .lg-line{width:22px;height:3px;border-radius:2px;display:inline-block}
+.eb-legend .lg-line.belt{background:linear-gradient(90deg,#86eff0,#1c6f9c)}
+.eb-legend .lg-line.boundary{background:#5fd4db}
+.eb-legend .lg-block{width:14px;height:14px;border-radius:3px;display:inline-block}
+.eb-legend .lg-block.terrain{background:linear-gradient(135deg,#9aa3a5,#4d5a5e)}
+.eb-desc{margin:16px 0 0;color:#96b8bd;line-height:1.85;font-size:14px;max-width:880px}
 
-/* ===== 沿线概况：五市→四县区 层级过渡 ===== */
-.region-bridge{position:relative;margin:44px 0 30px;padding:30px 34px;border-radius:24px;border:1px solid rgba(125,210,215,.16);background:linear-gradient(135deg,rgba(31,92,108,.32),rgba(7,27,35,.7));overflow:hidden}
-.region-bridge::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 0%,rgba(80,210,215,.14),transparent 55%)}
-.region-bridge .bridge-label{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(95,213,219,.1);border:1px solid rgba(95,213,219,.24);color:#6fdce0;font-size:11px;letter-spacing:.14em;margin-bottom:14px}
-.region-bridge h3{margin:0 0 10px;font-size:22px;letter-spacing:-.02em}
-.region-bridge p{margin:0;color:#96b8bd;line-height:1.8;font-size:14px;max-width:880px;position:relative}
+/* 图片灯箱（点击 X 光地形图放大查看） */
+.eb-lightbox{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;background:rgba(4,14,19,.92);padding:24px;cursor:zoom-out;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.eb-lightbox.open{opacity:1;pointer-events:auto}
+.eb-lightbox img{max-width:min(94vw,1100px);max-height:92vh;border-radius:16px;box-shadow:0 20px 80px rgba(0,0,0,.55);cursor:default}
+.eb-lightbox .lb-close{position:absolute;top:22px;right:26px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(125,210,215,.3);background:rgba(12,39,49,.6);color:#d8ffff;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
 /* ===== 沿线全景关系图（手绘 SVG） ===== */
 
@@ -357,8 +360,8 @@ footer{padding:48px 0 58px;border-top:1px solid rgba(132,211,216,.1);color:#688f
 .spec em{display:block;font-style:normal;font-size:11px;color:#6f959b;margin-top:9px;line-height:1.5}
 
 @media (max-width:1050px){
-  .hero-grid,.regions-layout,.strategy-grid,.ai-block{grid-template-columns:1fr}.hero-card{min-height:auto}.hero-map{min-height:460px}.miracles{grid-template-columns:repeat(2,1fr)}.history-stage{grid-template-columns:repeat(2,1fr)}.city-grid{grid-template-columns:repeat(2,1fr)}.city-card--full{grid-column:1 / -1}.specs-grid{grid-template-columns:repeat(2,1fr)}.sections-map-layout{grid-template-columns:1fr}.sections-map{min-height:400px}.hubs-layout{grid-template-columns:1fr}.hubs-map{min-height:400px}.com-body{grid-template-columns:1fr}.com-info{margin-left:0;margin-top:18px}
+  .hero-grid,.regions-layout,.strategy-grid,.ai-block{grid-template-columns:1fr}.hero-card{min-height:auto}.hero-map{min-height:460px}.miracles{grid-template-columns:repeat(2,1fr)}.history-stage{grid-template-columns:repeat(2,1fr)}.specs-grid{grid-template-columns:repeat(2,1fr)}.sections-map-layout{grid-template-columns:1fr}.sections-map{min-height:400px}.hubs-layout{grid-template-columns:1fr}.hubs-map{min-height:400px}.com-body{grid-template-columns:1fr}.com-info{margin-left:0;margin-top:18px}
 }
 @media (max-width:780px){
-  :root{--nav-h:68px}.topbar{padding:0 16px}.brand{min-width:0}.brand-sub{display:none}.nav{display:none}.nav-action{margin-left:auto}.shell{width:min(100% - 28px,1240px)}.hero{padding-top:42px}.hero-grid{gap:34px}.hero-copy{font-size:16px}.hero-card{min-height:auto;padding:16px}.hero-map{min-height:340px}.hero-metrics{grid-template-columns:repeat(2,1fr)}.metric strong{font-size:20px}.section{padding:82px 0}.section-head{display:block}.section-desc{margin-top:16px}.miracles{grid-template-columns:1fr}.map-card{min-height:590px}.region-panel{min-height:auto}.region-facts{grid-template-columns:1fr}.strategy-number{font-size:64px}.footer-grid{display:block}.footer-mark{margin-top:18px}.history-stage{grid-template-columns:1fr}.city-grid{grid-template-columns:1fr}.city-card--full{grid-column:auto}.specs-grid{grid-template-columns:1fr}.tl-item{grid-template-columns:88px 1fr}.cities-map{padding:22px}.region-bridge{padding:24px 20px;margin:32px 0 24px}.sections-map-layout{grid-template-columns:1fr}.sections-map{min-height:300px}.com-head{padding:20px 18px 14px}.com-body{padding:0 12px 12px}.hubs-section{padding:24px 18px}.hubs-head h3{font-size:20px}.hubs-layout{grid-template-columns:1fr}.hubs-map{min-height:340px}.hub-card{padding:18px 18px}.hub-head-stat{font-size:30px}
+  :root{--nav-h:68px}.topbar{padding:0 16px}.brand{min-width:0}.brand-sub{display:none}.nav{display:none}.nav-action{margin-left:auto}.shell{width:min(100% - 28px,1240px)}.hero{padding-top:42px}.hero-grid{gap:34px}.hero-copy{font-size:16px}.hero-card{min-height:auto;padding:16px}.hero-map{min-height:340px}.hero-metrics{grid-template-columns:repeat(2,1fr)}.metric strong{font-size:20px}.section{padding:82px 0}.section-head{display:block}.section-desc{margin-top:16px}.miracles{grid-template-columns:1fr}.map-card{min-height:590px}.region-panel{min-height:auto}.region-facts{grid-template-columns:1fr}.strategy-number{font-size:64px}.footer-grid{display:block}.footer-mark{margin-top:18px}.history-stage{grid-template-columns:1fr}.specs-grid{grid-template-columns:1fr}.tl-item{grid-template-columns:88px 1fr}.sections-map-layout{grid-template-columns:1fr}.sections-map{min-height:300px}.com-head{padding:20px 18px 14px}.com-body{padding:0 12px 12px}.hubs-section{padding:24px 18px}.hubs-head h3{font-size:20px}.hubs-layout{grid-template-columns:1fr}.hubs-map{min-height:340px}.hub-card{padding:18px 18px}.hub-head-stat{font-size:30px}
 }
