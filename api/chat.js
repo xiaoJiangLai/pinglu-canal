@@ -82,7 +82,8 @@ function json(obj, status, origin) {
   });
 }
 
-export default async function handler(request) {
+export default {
+  async fetch(request) {
   const origin = request.headers.get('origin') || '';
 
   // CORS 预检
@@ -161,5 +162,6 @@ export default async function handler(request) {
     return json({ answer }, 200, origin);
   } catch (e) {
     return json({ error: '调用失败：' + (e.message || String(e)) }, 500, origin);
+  }
   }
 }
