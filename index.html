@@ -612,20 +612,20 @@
         </div>
         <div class="ai-block">
           <div class="ai-intro reveal">
-            <span class="ai-chip">PINGLU AI · PROTOTYPE</span>
+            <span class="ai-chip">PINGLU AI · DEEPSEEK</span>
             <h3>问问平陆运河</h3>
-            <p>点击示例问题。回答会同时触发相应县区高亮，展示“知识回答 + 地图定位”的交互方式。</p>
+            <p>这是一个接入 DeepSeek 大模型的智能问答助手。你可以点击示例问题，或直接输入任何关于平陆运河的问题，它会基于权威资料为你解答。</p>
             <div class="questions">
-              <button class="q-btn" data-question="madao">马道枢纽为什么被称为“水上电梯”？</button>
-              <button class="q-btn" data-question="regions">平陆运河直接经过哪些县区？</button>
-              <button class="q-btn" data-question="name">“平陆运河”这个名字从哪里来？</button>
-              <button class="q-btn" data-question="sea">运河从哪里进入北部湾？</button>
+              <button class="q-btn" data-question="马道枢纽为什么被称为“水上电梯”？">马道枢纽为什么被称为“水上电梯”？</button>
+              <button class="q-btn" data-question="平陆运河直接经过哪些县区？">平陆运河直接经过哪些县区？</button>
+              <button class="q-btn" data-question="平陆运河一共投资多少钱？建设了多久？">平陆运河一共投资多少钱？建设了多久？</button>
+              <button class="q-btn" data-question="平陆运河建成后能带来什么好处？">平陆运河建成后能带来什么好处？</button>
             </div>
           </div>
           <div class="ai-demo reveal">
-            <div class="chat-head"><strong>平陆运河 AI 科普助手</strong><span class="chat-status">演示模式</span></div>
-            <div class="chat-body"><div class="chat-message" id="aiAnswer"><strong>你好，我可以带你沿河探索。</strong><br>试试左边的问题，例如“平陆运河经过哪些县区？”我会同时定位相应的互动地图。</div><div class="chat-actions" id="aiActions"><span class="chat-action">地图联动</span><span class="chat-action">工程数据</span><span class="chat-action">沿线知识</span></div></div>
-            <div class="chat-input"><input id="fakeInput" placeholder="输入问题（当前为交互原型）" /><button id="fakeSend">发送</button></div>
+            <div class="chat-head"><strong>平陆运河 AI 科普助手</strong><span class="chat-status">在线</span></div>
+            <div class="chat-body"><div class="chat-message" id="aiAnswer"><strong>你好，我是平陆运河 AI 科普助手。</strong><br>可以问我工程数据、建设历程、通航枢纽、工程亮点或沿线县区等任何问题。</div><div class="chat-actions" id="aiActions"><span class="chat-action">工程数据</span><span class="chat-action">建设历程</span><span class="chat-action">通航枢纽</span><span class="chat-action">沿线县区</span></div></div>
+            <div class="chat-input"><input id="fakeInput" placeholder="输入你的问题，例如：马道枢纽的水头有多高？" /><button id="fakeSend">发送</button></div>
           </div>
         </div>
       </div>
@@ -640,6 +640,7 @@
   </footer>
 
   <script src="js/data.js"></script>
+  <script src="js/knowledge.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
