@@ -414,64 +414,83 @@
           <p class="eb-desc">图中可见平陆运河从南宁横州平塘江口出发，跨过西江与钦江之间的分水岭丘陵带，一路向东南抵达钦州、汇入北部湾——把原本"向东绕行珠江口"的内河航道，拉直成一条直通大海的黄金水道。五市沿这条主线错位布局，构成"一河带五市"的经济带骨架。</p>
         </div>
 
-        <div class="regions-layout">
-          <div class="map-card reveal">
-            <div class="map-toolbar">
-              <div class="region-tabs" id="regionTabs"></div>
-              <div class="map-note">交互示意图 · 点击县区查看概况</div>
+        <div class="city-grid">
+          <article class="city-card reveal">
+            <div class="city-no">CITY 01 · 南宁</div>
+            <h4>南宁市</h4>
+            <div class="city-role">运河起点 · 首府核心</div>
+            <div class="city-gdp">6212.46<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>数字经济</span><span>科创服务</span><span>现代金融</span><span>新能源电池</span><span>精细化工新材料</span><span>茉莉花深加工</span></div>
             </div>
-            <div class="map-stage">
-              <svg viewBox="0 0 760 620" role="img" aria-label="平陆运河沿线县区交互示意图">
-                <defs>
-                  <linearGradient id="canalGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#86eff0"/>
-                    <stop offset="52%" stop-color="#37c0ca"/>
-                    <stop offset="100%" stop-color="#1c6f9c"/>
-                  </linearGradient>
-                  <radialGradient id="seaGradient" cx="50%" cy="10%" r="90%">
-                    <stop offset="0%" stop-color="#1887a2" stop-opacity=".65"/>
-                    <stop offset="100%" stop-color="#0b3248" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-
-                <path class="sea-glow" d="M370,507 C455,484 573,480 725,530 L760,620 L270,620 C305,571 327,536 370,507Z" />
-
-                <path id="hengzhou" class="region-shape" data-region="hengzhou" d="M208,36 C294,17 362,44 392,101 C410,135 394,167 363,195 C332,223 255,224 188,195 C133,170 119,109 151,66 C164,49 185,42 208,36Z"/>
-                <path id="lingshan" class="region-shape" data-region="lingshan" d="M291,197 C365,167 466,177 510,238 C541,282 520,347 475,389 C441,421 373,428 314,398 C250,366 239,304 258,250 C266,226 278,210 291,197Z"/>
-                <path id="qinbei" class="region-shape" data-region="qinbei" d="M405,384 C475,352 567,370 607,424 C636,464 616,511 571,541 C531,567 455,558 412,522 C371,487 368,433 405,384Z"/>
-                <path id="qinnan" class="region-shape" data-region="qinnan" d="M488,506 C551,479 657,497 709,548 C728,566 735,590 728,620 L383,620 C390,583 422,536 488,506Z"/>
-
-                <path class="canal-svg" id="canalBase" d="M245,86 C255,129 299,151 315,195 C326,226 324,255 341,286 C359,319 393,334 419,365 C445,395 461,423 482,455 C504,486 537,505 550,541 C561,568 575,589 602,615" />
-                <path class="canal-highlight" id="canalHighlight" d="M245,86 C255,129 299,151 315,195 C326,226 324,255 341,286 C359,319 393,334 419,365 C445,395 461,423 482,455 C504,486 537,505 550,541 C561,568 575,589 602,615" />
-
-                <text class="map-label" x="166" y="116">横州市</text><text class="map-sub" x="166" y="136">运河起点</text>
-                <text class="map-label" x="354" y="276">灵山县</text><text class="map-sub" x="354" y="296">穿岭核心区</text>
-                <text class="map-label" x="478" y="456">钦北区</text><text class="map-sub" x="478" y="476">钦江腹地</text>
-                <text class="map-label" x="560" y="562">钦南区</text><text class="map-sub" x="560" y="582">江海门户</text>
-
-                <g class="node-group" data-node="pingtang"><circle class="node-ring" cx="245" cy="86" r="11"/><circle class="node-dot" cx="245" cy="86" r="6"/><text class="map-sub" x="262" y="82">平塘江口</text></g>
-                <g class="node-group" data-node="madao"><circle class="node-ring" cx="349" cy="303" r="11"/><circle class="node-dot" cx="349" cy="303" r="6"/><text class="map-sub" x="366" y="299">马道</text></g>
-                <g class="node-group" data-node="qishi"><circle class="node-ring" cx="403" cy="348" r="11"/><circle class="node-dot" cx="403" cy="348" r="6"/><text class="map-sub" x="420" y="344">企石</text></g>
-                <g class="node-group" data-node="qingnian"><circle class="node-ring" cx="542" cy="527" r="11"/><circle class="node-dot" cx="542" cy="527" r="6"/><text class="map-sub" x="560" y="522">青年</text></g>
-                <text class="map-sub" x="604" y="606">北部湾 ↓</text>
-              </svg>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>源头门户、流域协同治理示范区、港产城融合先行样板；作为运河起点段，承担水质第一道防线、临港产业承载、城乡协同发展三重使命。</p>
             </div>
-          </div>
+          </article>
 
-          <aside class="region-panel reveal" aria-live="polite">
-            <div class="region-code" id="regionCode">REGION 01</div>
-            <h3 class="region-title" id="regionTitle">横州市</h3>
-            <div class="region-role" id="regionRole">西江之畔 · 运河起点</div>
-            <p class="region-overview" id="regionOverview"></p>
-            <div class="region-facts" id="regionFacts"></div>
-            <div class="region-tags" id="regionTags"></div>
-            <div class="story-box">
-              <small>沿河故事</small>
-              <h4 id="storyTitle"></h4>
-              <p id="storyText"></p>
+          <article class="city-card reveal">
+            <div class="city-no">CITY 02 · 钦州</div>
+            <h4>钦州市</h4>
+            <div class="city-role">运河入海口 · 滨海运河城市</div>
+            <div class="city-gdp">1907.61<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>绿色化工</span><span>新材料</span><span>粮油食品加工</span><span>装备制造</span><span>海洋产业</span><span>江海联运</span></div>
             </div>
-          </aside>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>江海联运枢纽、出海口门户、港产城融合示范；作为运河入海段，承担江海衔接、临港产业集聚、陆海通道联通功能。</p>
+            </div>
+          </article>
+
+          <article class="city-card reveal">
+            <div class="city-no">CITY 03 · 贵港</div>
+            <h4>贵港市</h4>
+            <div class="city-role">运河枢纽 · 能源门户</div>
+            <div class="city-gdp">1628.44<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>木业家居</span><span>绿色化工</span><span>冶金建材</span><span>现代纸业</span><span>能源电力</span><span>富硒农业</span></div>
+            </div>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>西江黄金水道重要节点、运河经济带内河中转枢纽、临港产业集聚高地；依托西江干线衔接平陆运河，承担内河中转、大宗货物集散功能。</p>
+            </div>
+          </article>
+
+          <article class="city-card reveal">
+            <div class="city-no">CITY 04 · 北海</div>
+            <h4>北海市</h4>
+            <div class="city-role">向海经济 · 临港工业</div>
+            <div class="city-gdp">1974.04<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>电子信息</span><span>绿色化工</span><span>硅基新材料</span><span>海工装备</span><span>滨海旅游</span><span>海洋渔业</span></div>
+            </div>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>经济带外海远洋枢纽、临港产业配套高地；不直接位于运河主航道，立足错位发展，承接运河带来的西南内陆腹地货源。</p>
+            </div>
+          </article>
+
+          <article class="city-card reveal">
+            <div class="city-no">CITY 05 · 防城港</div>
+            <h4>防城港市</h4>
+            <div class="city-role">临港工业 · 门户枢纽</div>
+            <div class="city-gdp">1201.26<small>亿元 · 2025 GDP</small></div>
+            <div class="city-block">
+              <div class="block-label">主导产业</div>
+              <div class="city-industries"><span>先进钢铁</span><span>有色金属</span><span>新型能源</span><span>新材料</span><span>面向东盟口岸贸易</span><span>海洋渔业</span></div>
+            </div>
+            <div class="city-block">
+              <div class="block-label">运河治理定位</div>
+              <p>西部陆海新通道重要配套枢纽、沿海沿边临港产业高地；以江海联运衔接、大宗商品中转为核心，承接运河内陆货源。</p>
+            </div>
+          </article>
         </div>
+
       </div>
     </section>
 
@@ -566,8 +585,6 @@
     </div>
   </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/knowledge.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
