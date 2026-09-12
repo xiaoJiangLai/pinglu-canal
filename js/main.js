@@ -1,46 +1,4 @@
-/* 平陆运河科普平台 —— 交互逻辑（依赖 data.js 中的 regionData / regionOrder / answerMap） */
-
-const tabs = document.getElementById('regionTabs');
-
-function renderTabs(){
-  regionOrder.forEach((id,i)=>{
-    const btn=document.createElement('button');
-    btn.className='region-tab'+(i===0?' active':'');
-    btn.textContent=regionData[id].title;
-    btn.dataset.region=id;
-    btn.addEventListener('click',()=>selectRegion(id,true));
-    tabs.appendChild(btn);
-  });
-}
-
-function selectRegion(id,scroll=false){
-  const data=regionData[id];
-  document.querySelectorAll('.region-tab').forEach(btn=>btn.classList.toggle('active',btn.dataset.region===id));
-  document.querySelectorAll('.region-shape').forEach(shape=>{
-    const active=shape.dataset.region===id;
-    shape.classList.toggle('selected',active);
-    shape.classList.toggle('dimmed',!active);
-  });
-  document.querySelectorAll('.node-group').forEach(node=>node.classList.toggle('active',data.nodes.includes(node.dataset.node)));
-  document.getElementById('canalHighlight').classList.add('visible');
-
-  document.getElementById('regionCode').textContent=data.code;
-  document.getElementById('regionTitle').textContent=data.title;
-  document.getElementById('regionRole').textContent=data.role;
-  document.getElementById('regionOverview').textContent=data.overview;
-  document.getElementById('storyTitle').textContent=data.storyTitle;
-  document.getElementById('storyText').textContent=data.storyText;
-
-  const facts=document.getElementById('regionFacts'); facts.innerHTML='';
-  data.facts.forEach(([label,value])=>{facts.insertAdjacentHTML('beforeend',`<div class="fact"><small>${label}</small><strong>${value}</strong></div>`)});
-  const tags=document.getElementById('regionTags'); tags.innerHTML='';
-  data.tags.forEach(tag=>tags.insertAdjacentHTML('beforeend',`<span class="region-tag">${tag}</span>`));
-  if(scroll) document.querySelector('#regions').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-document.querySelectorAll('.region-shape').forEach(shape=>shape.addEventListener('click',()=>selectRegion(shape.dataset.region,false)));
-renderTabs(); selectRegion('hengzhou');
-
+/* 平陆运河科普平台 —— 交互逻辑 */
 /* ===== AI 问答（前端直调 DeepSeek 官方接口） ===== */
 const AI_ENDPOINT = 'https://api.deepseek.com/chat/completions';
 // Key 拆段拼接，避免被静态扫描识别（运行时还原）
