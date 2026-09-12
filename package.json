@@ -1,0 +1,12 @@
+{
+  "name": "pinglu-canal",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo \"Static site, no build step\""
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
