@@ -42,7 +42,7 @@ document.querySelectorAll('.region-shape').forEach(shape=>shape.addEventListener
 renderTabs(); selectRegion('hengzhou');
 
 /* ===== AI 问答（接入 DeepSeek，经 Cloudflare Worker 中转） ===== */
-const AI_ENDPOINT = 'https://pinglu-canal.z1486727794.workers.dev'; // Cloudflare Worker 中转地址
+const AI_ENDPOINT = 'https://pinglu-canal.vercel.app/api/chat'; // Vercel Serverless Function（国内可达性更优）
 
 const aiAnswer = document.getElementById('aiAnswer');
 const aiInput = document.getElementById('fakeInput');
