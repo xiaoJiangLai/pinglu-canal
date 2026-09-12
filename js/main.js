@@ -41,19 +41,73 @@ function selectRegion(id,scroll=false){
 document.querySelectorAll('.region-shape').forEach(shape=>shape.addEventListener('click',()=>selectRegion(shape.dataset.region,false)));
 renderTabs(); selectRegion('hengzhou');
 
+/* ===== AI 问答（接入 DeepSeek，经 Cloudflare Worker 中转） ===== */
+const AI_ENDPOINT = 'https://pinglu-canal.z1486727794.workers.dev'; // Cloudflare Worker 中转地址
+
+const aiAnswer = document.getElementById('aiAnswer');
+const aiInput = document.getElementById('fakeInput');
+const aiSend = document.getElementById('fakeSend');
+const aiStatus = document.querySelector('.chat-status');
+
+let chatHistory = []; // 保留对话历史 [{role, content}]
+
+function askAI(question){
+  const q = (question||'').trim();
+  if(!q){ return; }
+
+  // 清空输入框，追加用户气泡
+  aiInput.value = '';
+  aiAnswer.innerHTML = `<div class="chat-message user"><strong>你：</strong>${escapeHtml(q)}</div>`;
+  aiStatus.textContent = '思考中…';
+
+  const assistantBox = document.createElement('div');
+  assistantBox.className = 'chat-message assistant';
+  assistantBox.innerHTML = '<strong>助手：</strong><span class="ai-cursor"></span>';
+  aiAnswer.appendChild(assistantBox);
+
+  // 调用 Worker
+  fetch(AI_ENDPOINT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: q, history: chatHistory }),
+  })
+    .then(async (res) => {
+      const data = await res.json().catch(() => ({}));
+      if(!res.ok){
+        throw new Error(data.error || data.detail || ('接口错误 ' + res.status));
+      }
+      const answerText = data.answer || '';
+      if(!answerText){
+        throw new Error('未收到有效回复');
+      }
+      assistantBox.innerHTML = '<strong>助手：</strong>' + formatAnswer(answerText);
+      aiStatus.textContent = '在线';
+      chatHistory.push({ role:'user', content:q });
+      chatHistory.push({ role:'assistant', content:answerText });
+      if(chatHistory.length > 12) chatHistory = chatHistory.slice(-12);
+    })
+    .catch((e)=>{
+      assistantBox.innerHTML = '<strong>助手：</strong><span style="color:#ff9d8a">出错了：' + escapeHtml(e.message) + '</span>';
+      aiStatus.textContent = '在线';
+    });
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, (c)=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
+
+function formatAnswer(text){
+  // 将换行转为 <br>，其他按纯文本显示（避免注入）
+  return escapeHtml(text).replace(/\n/g, '<br>');
+}
+
+// 示例问题按钮：直接用问题文本触发真实问答
 document.querySelectorAll('.q-btn').forEach(btn=>btn.addEventListener('click',()=>{
-  const item=answerMap[btn.dataset.question];
-  document.getElementById('aiAnswer').innerHTML=item.html;
-  selectRegion(item.region,false);
-  document.querySelector('#regions').scrollIntoView({behavior:'smooth',block:'center'});
-  setTimeout(()=>document.querySelector('#ai').scrollIntoView({behavior:'smooth',block:'center'}),1450);
+  askAI(btn.dataset.question);
 }));
 
-document.getElementById('fakeSend').addEventListener('click',()=>{
-  const value=document.getElementById('fakeInput').value.trim();
-  document.getElementById('aiAnswer').innerHTML=value?`<strong>原型提示：</strong><br>“${value}” 已收到。正式版本接入大模型后，这里会根据问题调用地图、县区与工程节点组件。`:'<strong>请输入一个问题。</strong>';
-});
-document.getElementById('fakeInput').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('fakeSend').click()});
+aiSend.addEventListener('click',()=>askAI(aiInput.value));
+aiInput.addEventListener('keydown',e=>{ if(e.key==='Enter') askAI(aiInput.value); });
 
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
