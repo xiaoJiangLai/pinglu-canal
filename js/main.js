@@ -97,8 +97,16 @@ function escapeHtml(s){
 }
 
 function formatAnswer(text){
-  // 将换行转为 <br>，其他按纯文本显示（避免注入）
-  return escapeHtml(text).replace(/\n/g, '<br>');
+  // 1. 先做 HTML 转义防注入
+  let html = escapeHtml(text);
+  // 2. 解析 Markdown 加粗 **...**：用非贪婪配对，且不允许内部再有 **
+  //    规则：** + 内容（不含 *）+ **
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  // 3. 解析单星斜体 *...*（同样排除内部含 * 的情况）
+  html = html.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+  // 4. 换行转 <br>
+  html = html.replace(/\n/g, '<br>');
+  return html;
 }
 
 // 示例问题按钮：直接用问题文本触发真实问答
