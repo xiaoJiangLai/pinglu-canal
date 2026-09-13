@@ -214,7 +214,9 @@ h1 .thin{display:block;color:#9ed5d9;font-weight:400;font-size:.47em;letter-spac
 .chat-message.assistant{margin-top:12px}
 .chat-message.assistant + .chat-message.assistant{margin-top:12px}
 .ai-cursor{display:inline-block;width:8px;height:16px;background:#77e0bd;vertical-align:middle;margin-left:4px;animation:blink 1s steps(1) infinite}
+.ai-text{white-space:normal;word-break:break-word}
 @keyframes blink{50%{opacity:0}}
+.chat-body{overflow-y:auto;max-height:420px;scroll-behavior:smooth}
 
 footer{padding:48px 0 58px;border-top:1px solid rgba(132,211,216,.1);color:#688f95;font-size:12px}.footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:flex-end}.source-note{max-width:780px;line-height:1.8}.footer-mark{font-size:32px;font-weight:900;color:#183d46;letter-spacing:-.06em}
 
