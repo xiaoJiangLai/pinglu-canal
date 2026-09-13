@@ -75,10 +75,23 @@ function askAI(question){
 
   const assistantBox = document.createElement('div');
   assistantBox.className = 'chat-message assistant';
-  assistantBox.innerHTML = '<strong>助手：</strong><span class="ai-cursor"></span>';
+  assistantBox.innerHTML = '<strong>助手：</strong><span class="ai-text"></span><span class="ai-cursor"></span>';
   aiAnswer.appendChild(assistantBox);
+  const textSpan = assistantBox.querySelector('.ai-text');
 
-  // 直接调用 DeepSeek API
+  let fullText = '';      // 累积完整纯文本（用于 Markdown 渲染 + 存历史）
+  let rawBuf = '';        // SSE 分块缓冲
+
+  // 把累积的纯文本渲染成 Markdown HTML（逐字追加，光标跟在末尾）
+  function renderStream(){
+    // 去掉可能未闭合的 ** 或 *，避免闪烁渲染坏
+    let pending = fullText.replace(/\*\*[^*]*$/g, '').replace(/(^|[^*])\*[^*]*$/g, '$1');
+    textSpan.innerHTML = formatAnswer(pending);
+    // 滚动到底部
+    aiAnswer.scrollTop = aiAnswer.scrollHeight;
+  }
+
+  // 直接调用 DeepSeek API（流式 SSE）
   fetch(AI_ENDPOINT, {
     method: 'POST',
     headers: {
@@ -94,26 +107,59 @@ function askAI(question){
       ],
       temperature: 0.7,
       max_tokens: 800,
-      stream: false,
+      stream: true,
     }),
   })
     .then(async (res) => {
-      const data = await res.json().catch(() => ({}));
       if(!res.ok){
+        const data = await res.json().catch(() => ({}));
         throw new Error(data.error?.message || data.error?.type || ('接口错误 ' + res.status));
       }
-      const answerText = data.choices?.[0]?.message?.content || '';
-      if(!answerText){
-        throw new Error('未收到有效回复');
+      if(!res.body){
+        throw new Error('当前浏览器不支持流式读取');
       }
-      assistantBox.innerHTML = '<strong>助手：</strong>' + formatAnswer(answerText);
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder('utf-8');
+
+      while(true){
+        const { done, value } = await reader.read();
+        if(done) break;
+        rawBuf += decoder.decode(value, { stream: true });
+
+        // 按 SSE 事件分隔（DeepSeek 用 \n\n 分隔每个 data: 块）
+        let parts = rawBuf.split('\n\n');
+        rawBuf = parts.pop(); // 最后一个可能不完整，留在缓冲
+
+        for(const part of parts){
+          const line = part.trim();
+          if(!line.startsWith('data:')) continue;
+          const payload = line.slice(5).trim();
+          if(payload === '[DONE]') continue;
+          try {
+            const json = JSON.parse(payload);
+            const delta = json.choices?.[0]?.delta?.content || '';
+            if(delta){
+              fullText += delta;
+              renderStream();
+            }
+          } catch(e){ /* 忽略无法解析的分块 */ }
+        }
+      }
+
+      // 流结束，做最终完整渲染
+      textSpan.innerHTML = formatAnswer(fullText);
       aiStatus.textContent = '在线';
       chatHistory.push({ role:'user', content:q });
-      chatHistory.push({ role:'assistant', content:answerText });
+      chatHistory.push({ role:'assistant', content:fullText });
       if(chatHistory.length > 12) chatHistory = chatHistory.slice(-12);
     })
     .catch((e)=>{
-      assistantBox.innerHTML = '<strong>助手：</strong><span style="color:#ff9d8a">出错了：' + escapeHtml(e.message) + '</span>';
+      // 若已输出部分内容，保留并追加错误提示；否则整体报错
+      if(fullText){
+        textSpan.innerHTML = formatAnswer(fullText) + '<span style="color:#ff9d8a">（回答中断：' + escapeHtml(e.message) + '）</span>';
+      } else {
+        assistantBox.innerHTML = '<strong>助手：</strong><span style="color:#ff9d8a">出错了：' + escapeHtml(e.message) + '</span>';
+      }
       aiStatus.textContent = '在线';
     });
 }
