@@ -1,223 +1,234 @@
 /* ============================================================
-   白色简约主题（light theme）—— 仅本地预览用，不覆盖线上
-   通过在 index.html 中追加 <link> 引用，层叠覆盖原深色样式
+   运河概念图背景 · 深邃藏蓝主题 —— 本地预览用
+   背景：深邃藏蓝→湖蓝渐变运河概念图（canal-concept-bg.png）
+   文字：白色；卡片：深蓝半透明 + backdrop 轻模糊
    ============================================================ */
 
 :root{
-  --bg:#f7f8f9;
-  --bg-2:#ffffff;
-  --panel:#ffffff;
-  --panel-strong:#ffffff;
-  --line:rgba(15,40,60,.10);
-  --text:#1a2733;
-  --muted:#5c6b76;
-  --cyan:#0e7c86;
-  --cyan-2:#0a6a74;
-  --sea:#0d7d9a;
-  --green:#1d9e75;
-  --sand:#b78a3c;
-  --danger:#e0694b;
-  --shadow:0 12px 40px rgba(15,40,60,.08);
+  --bg:#0a1c30;
+  --bg-2:#0e2c4c;
+  --panel:rgba(9,24,44,.58);
+  --panel-strong:rgba(9,24,44,.72);
+  --line:rgba(127,208,240,.16);
+  --text:#eaf4fb;
+  --muted:#b8d0e2;
+  --cyan:#7fd0f0;
+  --cyan-2:#8fe6f5;
+  --sea:#7fd0f0;
+  --green:#5fd8b0;
+  --sand:#e8c98a;
+  --danger:#ff9d8a;
+  --shadow:0 16px 48px rgba(2,10,24,.45);
+  --glass-blur:saturate(1.15) blur(14px);
 }
 
 body{
-  background:#f7f8f9;
-  color:#1a2733;
+  background:
+    linear-gradient(180deg,rgba(5,14,28,.18) 0%,rgba(5,14,28,.38) 100%),
+    url('../images/canal-concept-bg.png');
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  color:#eaf4fb;
 }
 
 /* 顶栏 */
 .topbar{
-  background:rgba(255,255,255,.85);
-  border-bottom:1px solid rgba(15,40,60,.08);
+  background:rgba(6,16,32,.68);
+  border-bottom:1px solid rgba(127,208,240,.14);
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
 }
-.brand-title{color:#1a2733}
-.brand-sub{color:#5c6b76}
+.brand-title{color:#f2f9fd}
+.brand-sub{color:#b8d0e2}
 .brand-mark{
   background:
-    linear-gradient(145deg,rgba(14,124,134,.18),rgba(14,124,134,.04)),
-    radial-gradient(circle at 35% 30%,#12a3b0 0 8%,transparent 9%),
-    linear-gradient(160deg,#eaf4f5,#d4ebec);
-  box-shadow:inset 0 0 0 1px rgba(14,124,134,.15),0 8px 22px rgba(14,124,134,.10);
+    linear-gradient(145deg,rgba(127,208,240,.25),rgba(127,208,240,.06)),
+    radial-gradient(circle at 35% 30%,#9fe2f7 0 8%,transparent 9%),
+    linear-gradient(160deg,#14486e,#0a2c4c);
+  box-shadow:inset 0 0 0 1px rgba(127,208,240,.28),0 8px 22px rgba(2,10,24,.5);
 }
-.brand-mark::before,.brand-mark::after{background:rgba(14,124,134,.55)}
+.brand-mark::before,.brand-mark::after{background:rgba(200,240,255,.78)}
 
-.nav a{color:#4a5a66}
-.nav a:hover,.nav a.active{color:#0e7c86;background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.16)}
-.nav-action{border-color:rgba(14,124,134,.25);background:rgba(14,124,134,.07);color:#0e7c86}
+.nav a{color:#c6ddee}
+.nav a:hover,.nav a.active{color:#9fe2f7;background:rgba(127,208,240,.1);border-color:rgba(127,208,240,.3)}
+.nav-action{border-color:rgba(127,208,240,.35);background:rgba(127,208,240,.1);color:#9fe2f7}
 
 /* Hero */
-.eyebrow{color:#0e7c86}
-h1{color:#1a2733}
-h1 .thin{color:#7d8d99}
-.hero-copy{color:#4a5a66}
-.btn-primary{background:#0e7c86;color:#fff;box-shadow:0 10px 24px rgba(14,124,134,.22)}
-.btn-primary:hover{background:#0a6a74}
-.btn-secondary{background:#fff;border-color:rgba(15,40,60,.16);color:#3a4a55}
-.btn-secondary:hover{background:#f2f5f6}
+.eyebrow{color:#9fe2f7}
+h1{color:#ffffff}
+h1 .thin{color:#c6ddee}
+.hero-copy{color:#d3e6f4}
+.btn-primary{background:linear-gradient(135deg,#2f9ecf,#1a6ea8);color:#fff;box-shadow:0 10px 26px rgba(26,110,168,.45)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-secondary{background:rgba(255,255,255,.07);border-color:rgba(127,208,240,.3);color:#e4f2fb}
+.btn-secondary:hover{background:rgba(255,255,255,.13)}
 
 .hero-card{
-  border-color:rgba(15,40,60,.08);
-  background:#fff;
+  border-color:rgba(127,208,240,.16);
+  background:var(--panel);
+  backdrop-filter:var(--glass-blur);
+  -webkit-backdrop-filter:var(--glass-blur);
   box-shadow:var(--shadow);
 }
-.hero-map{background:#eef2f4;border-color:rgba(15,40,60,.08)}
-.hero-map-caption{background:rgba(255,255,255,.9);border-color:rgba(15,40,60,.1);color:#5c6b76}
-.metric{background:#f7f9fa;border-color:rgba(15,40,60,.07)}
-.metric strong{color:#1a2733}
-.metric span{color:#7d8d99}
+.hero-map{background:rgba(7,20,38,.55);border-color:rgba(127,208,240,.16)}
+.hero-map-caption{background:rgba(6,16,32,.8);border-color:rgba(127,208,240,.2);color:#b8d0e2}
+.metric{background:rgba(9,24,44,.55);border-color:rgba(127,208,240,.14)}
+.metric strong{color:#ffffff}
+.metric span{color:#b8d0e2}
 
 /* 板块标题 */
-.section-title{color:#1a2733}
-.section-desc{color:#5c6b76}
-.section-kicker{color:#0e7c86}
+.section-title{color:#ffffff}
+.section-desc{color:#c6ddee}
+.section-kicker{color:#9fe2f7}
 
 /* 五大航段 */
-.sections-map{background:#eef2f4;border-color:rgba(15,40,60,.08)}
-.sections-map-caption{background:rgba(255,255,255,.9);border-color:rgba(15,40,60,.1);color:#5c6b76}
-.sections-list{background:#fff;border-color:var(--line)}
-.sections-list-title{color:#0e7c86}
-.sec-row{border-bottom-color:rgba(15,40,60,.06)}
-.sec-no{background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.14);color:#0e7c86}
-.sec-row strong{color:#1a2733}
-.sec-row p{color:#5c6b76}
-.sec-len{color:#0e7c86}
+.sections-map{background:rgba(7,20,38,.55);border-color:rgba(127,208,240,.16)}
+.sections-map-caption{background:rgba(6,16,32,.8);border-color:rgba(127,208,240,.2);color:#b8d0e2}
+.sections-list{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur)}
+.sections-list-title{color:#9fe2f7}
+.sec-row{border-bottom-color:rgba(127,208,240,.12)}
+.sec-no{background:rgba(127,208,240,.12);border-color:rgba(127,208,240,.3);color:#9fe2f7}
+.sec-row strong{color:#ffffff}
+.sec-row p{color:#b8d0e2}
+.sec-len{color:#9fe2f7}
 
 /* 三大枢纽 */
-.hubs-section{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
-.hubs-kicker{color:#0e7c86}
-.hubs-head h3{color:#1a2733}
-.hubs-sub{color:#5c6b76}
-.hubs-map{background:#eef2f4;border-color:rgba(15,40,60,.08)}
-.hubs-map-caption{background:rgba(255,255,255,.9);border-color:rgba(15,40,60,.1);color:#5c6b76}
-.hub-card{background:#fff;border-color:rgba(15,40,60,.08)}
-.hub-card:hover{border-color:rgba(14,124,134,.3)}
-.hub-no{color:#0e7c86}
-.hub-card h4{color:#1a2733}
-.hub-head-stat{color:#1a2733}
-.hub-head-stat small{color:#0e7c86}
-.hub-tech{background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.16);color:#0e7c86}
-.hub-facts li{border-bottom-color:rgba(15,40,60,.06);color:#5c6b76}
-.hub-facts strong{color:#1a2733}
+.hubs-section{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);box-shadow:var(--shadow)}
+.hubs-kicker{color:#9fe2f7}
+.hubs-head h3{color:#ffffff}
+.hubs-sub{color:#c6ddee}
+.hubs-map{background:rgba(7,20,38,.55);border-color:rgba(127,208,240,.16)}
+.hubs-map-caption{background:rgba(6,16,32,.8);border-color:rgba(127,208,240,.2);color:#b8d0e2}
+.hub-card{background:rgba(9,24,44,.55);border-color:rgba(127,208,240,.16)}
+.hub-card:hover{border-color:rgba(127,208,240,.42)}
+.hub-no{color:#9fe2f7}
+.hub-card h4{color:#ffffff}
+.hub-head-stat{color:#ffffff}
+.hub-head-stat small{color:#9fe2f7}
+.hub-tech{background:rgba(127,208,240,.12);border-color:rgba(127,208,240,.3);color:#9fe2f7}
+.hub-facts li{border-bottom-color:rgba(127,208,240,.12);color:#c6ddee}
+.hub-facts strong{color:#ffffff}
 
 /* 工程奇迹 */
-.miracle-card{background:#fff;border-color:rgba(15,40,60,.08)}
-.miracle-card:hover{border-color:rgba(14,124,134,.25)}
-.miracle-num{color:#0e7c86}
-.miracle-card h3{color:#1a2733}
-.miracle-card p{color:#5c6b76}
-.miracle-stat{color:#1a2733}
-.miracle-stat small{color:#0e7c86}
+.miracle-card{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur)}
+.miracle-card:hover{border-color:rgba(127,208,240,.42)}
+.miracle-num{color:#9fe2f7}
+.miracle-card h3{color:#ffffff}
+.miracle-card p{color:#c6ddee}
+.miracle-stat{color:#ffffff}
+.miracle-stat small{color:#9fe2f7}
 
 /* 沿线概况：X 光地形图 */
-.eb-head h3{color:#1a2733}
-.eb-head .eb-sub{color:#5c6b76}
-.eb-map{background:#fff;border-color:rgba(15,40,60,.08)}
-.eb-legend{border-top-color:rgba(15,40,60,.08)}
-.eb-legend span{color:#5c6b76}
-.eb-desc{color:#5c6b76}
+.eb-head h3{color:#ffffff}
+.eb-head .eb-sub{color:#c6ddee}
+.eb-map{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur)}
+.eb-legend{border-top-color:rgba(127,208,240,.16)}
+.eb-legend span{color:#c6ddee}
+.eb-desc{color:#c6ddee}
 
 /* 五市信息卡 */
-.city-card{background:#fff;border-color:rgba(15,40,60,.08)}
-.city-card:hover{border-color:rgba(14,124,134,.25)}
-.city-card .city-no{color:#0e7c86}
-.city-card h4{color:#1a2733}
-.city-card .city-role{color:#7d8d99}
-.city-gdp{color:#1a2733}
-.city-gdp small{color:#0e7c86}
-.city-block .block-label{color:#0e7c86}
-.city-block p{color:#5c6b76}
-.city-industries span{background:rgba(14,124,134,.05);border-color:rgba(14,124,134,.12);color:#4a6b70}
+.city-card{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur)}
+.city-card:hover{border-color:rgba(127,208,240,.42)}
+.city-card .city-no{color:#9fe2f7}
+.city-card h4{color:#ffffff}
+.city-card .city-role{color:#b8d0e2}
+.city-gdp{color:#ffffff}
+.city-gdp small{color:#9fe2f7}
+.city-block .block-label{color:#9fe2f7}
+.city-block p{color:#c6ddee}
+.city-industries span{background:rgba(127,208,240,.1);border-color:rgba(127,208,240,.26);color:#d3e6f4}
 
 /* 灯箱 */
-.eb-lightbox{background:rgba(20,30,38,.9)}
+.eb-lightbox{background:rgba(3,10,20,.92)}
 .eb-lightbox .lb-close{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff}
 
 /* 沿线全景关系图入口 */
-.canal-trigger{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
-.canal-trigger:hover{border-color:rgba(14,124,134,.35);box-shadow:0 12px 36px rgba(15,40,60,.12)}
-.ct-icon{background:rgba(14,124,134,.08);border-color:rgba(14,124,134,.22);color:#0e7c86}
-.ct-text strong{color:#1a2733}
-.ct-text em{color:#5c6b76}
-.ct-arrow{color:#0e7c86}
+.canal-trigger{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);box-shadow:var(--shadow)}
+.canal-trigger:hover{border-color:rgba(127,208,240,.46);box-shadow:0 12px 36px rgba(2,10,24,.5)}
+.ct-icon{background:rgba(127,208,240,.12);border-color:rgba(127,208,240,.32);color:#9fe2f7}
+.ct-text strong{color:#ffffff}
+.ct-text em{color:#c6ddee}
+.ct-arrow{color:#9fe2f7}
 
 /* 模态框 */
-.canal-modal-mask{background:rgba(20,30,38,.55)}
-.modal-close{border-color:rgba(15,40,60,.15);background:#fff;color:#5c6b76}
-.modal-close:hover{color:#1a2733;border-color:rgba(14,124,134,.4);background:#fff}
-.canal-overview-map{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
-.com-kicker{color:#0e7c86}
-.com-head h3{color:#1a2733}
-.com-legend{color:#5c6b76}
-.com-map-stage{background:#f2f5f6;border-color:rgba(15,40,60,.08)}
-.com-info{background:#fff;border-color:rgba(15,40,60,.1);box-shadow:0 10px 32px rgba(15,40,60,.1)}
-.com-close{color:#7d8d99}
-.com-tag{background:rgba(14,124,134,.08);color:#0e7c86;border-color:rgba(14,124,134,.2)}
-.com-info h4{color:#1a2733}
-.com-role{color:#7d8d99}
-.com-stat{color:#1a2733}
-.com-stat small{color:#0e7c86}
-.com-label{color:#0e7c86}
-.com-industries span{background:rgba(14,124,134,.05);border-color:rgba(14,124,134,.12);color:#4a6b70}
-.com-desc{color:#5c6b76}
-.com-tab{border-color:rgba(15,40,60,.12);background:#f7f9fa;color:#5c6b76}
-.com-tab:hover{color:#0e7c86;background:rgba(14,124,134,.06);border-color:rgba(14,124,134,.25)}
-.com-disclaimer{color:#8a9aa3}
+.canal-modal-mask{background:rgba(3,10,20,.65)}
+.modal-close{border-color:rgba(127,208,240,.3);background:rgba(255,255,255,.08);color:#c6ddee}
+.modal-close:hover{color:#fff;border-color:rgba(127,208,240,.55);background:rgba(255,255,255,.14)}
+.canal-overview-map{background:rgba(8,22,42,.94);border-color:rgba(127,208,240,.18);box-shadow:var(--shadow)}
+.com-kicker{color:#9fe2f7}
+.com-head h3{color:#ffffff}
+.com-legend{color:#c6ddee}
+.com-map-stage{background:rgba(5,15,30,.6);border-color:rgba(127,208,240,.16)}
+.com-info{background:rgba(8,22,42,.96);border-color:rgba(127,208,240,.2);box-shadow:0 10px 32px rgba(2,10,24,.55)}
+.com-close{color:#b8d0e2}
+.com-tag{background:rgba(127,208,240,.14);color:#9fe2f7;border-color:rgba(127,208,240,.32)}
+.com-info h4{color:#ffffff}
+.com-role{color:#b8d0e2}
+.com-stat{color:#ffffff}
+.com-stat small{color:#9fe2f7}
+.com-label{color:#9fe2f7}
+.com-industries span{background:rgba(127,208,240,.1);border-color:rgba(127,208,240,.26);color:#d3e6f4}
+.com-desc{color:#c6ddee}
+.com-tab{border-color:rgba(127,208,240,.24);background:rgba(255,255,255,.05);color:#c6ddee}
+.com-tab:hover{color:#9fe2f7;background:rgba(127,208,240,.1);border-color:rgba(127,208,240,.38)}
+.com-disclaimer{color:#7fa0b8}
 
-/* SVG 里的浅色文字标签（沿线全景关系图） */
-.com-county-name{fill:#1a2733}
-.com-county-sub{fill:#7d8d99}
-.com-hub-name{fill:#7a4a2e}
-.com-hub-sub{fill:#8a9aa3}
-.com-node-name{fill:#1a2733}
-.com-node-sub{fill:#7d8d99}
-.com-city-name{fill:#6b4e12}
-.com-city-off .com-city-name{fill:#8a7a55}
-.com-city-sub{fill:#7d8d99}
+/* SVG 里的文字标签（沿线全景关系图） */
+.com-county-name{fill:#ffffff}
+.com-county-sub{fill:#c6ddee}
+.com-hub-name{fill:#ffe2c4}
+.com-hub-sub{fill:#b8d0e2}
+.com-node-name{fill:#ffffff}
+.com-node-sub{fill:#c6ddee}
+.com-city-name{fill:#ffe9b0}
+.com-city-off .com-city-name{fill:#c9b98a}
+.com-city-sub{fill:#c6ddee}
 
 /* 战略价值 */
-.strategy-main{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
-.strategy-main h3{color:#1a2733}
-.strategy-main p{color:#5c6b76}
-.strategy-labels{color:#7d8d99}
-.strategy-number{color:#1a2733}
-.strategy-number small{color:#0e7c86}
+.strategy-main{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);box-shadow:var(--shadow)}
+.strategy-main h3{color:#ffffff}
+.strategy-main p{color:#c6ddee}
+.strategy-labels{color:#b8d0e2}
+.strategy-number{color:#ffffff}
+.strategy-number small{color:#9fe2f7}
 
 /* AI 板块 */
-.ai-intro,.ai-demo{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
-.ai-intro h3{color:#1a2733}
-.ai-intro p{color:#5c6b76}
-.ai-chip{background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.14);color:#0e7c86}
-.q-btn{border-color:rgba(15,40,60,.1);background:#f7f9fa;color:#4a5a66}
-.q-btn:hover{background:rgba(14,124,134,.06);color:#0e7c86}
-.chat-head{border-bottom-color:rgba(15,40,60,.08)}
-.chat-status{color:#0e7c86}
-.chat-message{background:#f2f5f6;border-color:rgba(15,40,60,.06);color:#3a4a55}
-.chat-message strong{color:#1a2733}
-.chat-action{background:#fff;border-color:rgba(15,40,60,.1);color:#5c6b76}
-.chat-input{border-top-color:rgba(15,40,60,.08)}
-.chat-input input{background:#f7f9fa;border-color:rgba(15,40,60,.12);color:#1a2733}
-.chat-input input::placeholder{color:#9aa7b0}
-.chat-input button{background:#0e7c86;color:#fff}
-.chat-message.user{background:rgba(14,124,134,.08);border-color:rgba(14,124,134,.16);color:#2a4a52}
+.ai-intro,.ai-demo{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur);box-shadow:var(--shadow)}
+.ai-intro h3{color:#ffffff}
+.ai-intro p{color:#c6ddee}
+.ai-chip{background:rgba(127,208,240,.12);border-color:rgba(127,208,240,.3);color:#9fe2f7}
+.q-btn{border-color:rgba(127,208,240,.22);background:rgba(255,255,255,.05);color:#d3e6f4}
+.q-btn:hover{background:rgba(127,208,240,.12);color:#9fe2f7}
+.chat-head{border-bottom-color:rgba(127,208,240,.16)}
+.chat-status{color:#9fe2f7}
+.chat-message{background:rgba(9,24,44,.6);border-color:rgba(127,208,240,.12);color:#e4f2fb}
+.chat-message strong{color:#ffffff}
+.chat-action{background:rgba(255,255,255,.05);border-color:rgba(127,208,240,.2);color:#c6ddee}
+.chat-input{border-top-color:rgba(127,208,240,.16)}
+.chat-input input{background:rgba(5,15,30,.6);border-color:rgba(127,208,240,.24);color:#ffffff}
+.chat-input input::placeholder{color:#7fa0b8}
+.chat-input button{background:linear-gradient(135deg,#2f9ecf,#1a6ea8);color:#fff}
+.chat-message.user{background:rgba(127,208,240,.14);border-color:rgba(127,208,240,.3);color:#eaf7fd}
 
 /* 建设历程 */
-.history-era{background:#fff;border-color:rgba(15,40,60,.08)}
-.history-era .era-tag{background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.14);color:#0e7c86}
-.history-era h3{color:#1a2733}
-.history-era .era-sub{color:#7d8d99}
-.tl-item{border-left-color:rgba(15,40,60,.12)}
-.tl-date{color:#0e7c86}
-.tl-text{color:#5c6b76}
-.tl-text strong{color:#1a2733}
+.history-era{background:var(--panel);border-color:rgba(127,208,240,.16);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur)}
+.history-era .era-tag{background:rgba(127,208,240,.12);border-color:rgba(127,208,240,.3);color:#9fe2f7}
+.history-era h3{color:#ffffff}
+.history-era .era-sub{color:#b8d0e2}
+.tl-item{border-left-color:rgba(127,208,240,.26)}
+.tl-date{color:#9fe2f7}
+.tl-text{color:#c6ddee}
+.tl-text strong{color:#ffffff}
 
 /* 技术指标 */
-.spec{background:#f7f9fa;border-color:rgba(15,40,60,.07)}
-.spec span{color:#5c6b76}
-.spec strong{color:#1a2733}
-.spec strong small{color:#0e7c86}
-.spec em{color:#7d8d99}
+.spec{background:rgba(9,24,44,.55);border-color:rgba(127,208,240,.14)}
+.spec span{color:#c6ddee}
+.spec strong{color:#ffffff}
+.spec strong small{color:#9fe2f7}
+.spec em{color:#b8d0e2}
 
 /* 页脚 */
-footer{border-top-color:rgba(15,40,60,.08);color:#7d8d99}
-.footer-mark{color:#d3dde2}
-.source-note{color:#7d8d99}
+footer{border-top-color:rgba(127,208,240,.14);color:#b8d0e2;background:rgba(6,16,32,.6);backdrop-filter:var(--glass-blur);-webkit-backdrop-filter:var(--glass-blur)}
+.footer-mark{color:#2a4a68}
+.source-note{color:#b8d0e2}
