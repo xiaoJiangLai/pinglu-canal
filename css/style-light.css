@@ -1,0 +1,223 @@
+/* ============================================================
+   白色简约主题（light theme）—— 仅本地预览用，不覆盖线上
+   通过在 index.html 中追加 <link> 引用，层叠覆盖原深色样式
+   ============================================================ */
+
+:root{
+  --bg:#f7f8f9;
+  --bg-2:#ffffff;
+  --panel:#ffffff;
+  --panel-strong:#ffffff;
+  --line:rgba(15,40,60,.10);
+  --text:#1a2733;
+  --muted:#5c6b76;
+  --cyan:#0e7c86;
+  --cyan-2:#0a6a74;
+  --sea:#0d7d9a;
+  --green:#1d9e75;
+  --sand:#b78a3c;
+  --danger:#e0694b;
+  --shadow:0 12px 40px rgba(15,40,60,.08);
+}
+
+body{
+  background:#f7f8f9;
+  color:#1a2733;
+}
+
+/* 顶栏 */
+.topbar{
+  background:rgba(255,255,255,.85);
+  border-bottom:1px solid rgba(15,40,60,.08);
+}
+.brand-title{color:#1a2733}
+.brand-sub{color:#5c6b76}
+.brand-mark{
+  background:
+    linear-gradient(145deg,rgba(14,124,134,.18),rgba(14,124,134,.04)),
+    radial-gradient(circle at 35% 30%,#12a3b0 0 8%,transparent 9%),
+    linear-gradient(160deg,#eaf4f5,#d4ebec);
+  box-shadow:inset 0 0 0 1px rgba(14,124,134,.15),0 8px 22px rgba(14,124,134,.10);
+}
+.brand-mark::before,.brand-mark::after{background:rgba(14,124,134,.55)}
+
+.nav a{color:#4a5a66}
+.nav a:hover,.nav a.active{color:#0e7c86;background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.16)}
+.nav-action{border-color:rgba(14,124,134,.25);background:rgba(14,124,134,.07);color:#0e7c86}
+
+/* Hero */
+.eyebrow{color:#0e7c86}
+h1{color:#1a2733}
+h1 .thin{color:#7d8d99}
+.hero-copy{color:#4a5a66}
+.btn-primary{background:#0e7c86;color:#fff;box-shadow:0 10px 24px rgba(14,124,134,.22)}
+.btn-primary:hover{background:#0a6a74}
+.btn-secondary{background:#fff;border-color:rgba(15,40,60,.16);color:#3a4a55}
+.btn-secondary:hover{background:#f2f5f6}
+
+.hero-card{
+  border-color:rgba(15,40,60,.08);
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+.hero-map{background:#eef2f4;border-color:rgba(15,40,60,.08)}
+.hero-map-caption{background:rgba(255,255,255,.9);border-color:rgba(15,40,60,.1);color:#5c6b76}
+.metric{background:#f7f9fa;border-color:rgba(15,40,60,.07)}
+.metric strong{color:#1a2733}
+.metric span{color:#7d8d99}
+
+/* 板块标题 */
+.section-title{color:#1a2733}
+.section-desc{color:#5c6b76}
+.section-kicker{color:#0e7c86}
+
+/* 五大航段 */
+.sections-map{background:#eef2f4;border-color:rgba(15,40,60,.08)}
+.sections-map-caption{background:rgba(255,255,255,.9);border-color:rgba(15,40,60,.1);color:#5c6b76}
+.sections-list{background:#fff;border-color:var(--line)}
+.sections-list-title{color:#0e7c86}
+.sec-row{border-bottom-color:rgba(15,40,60,.06)}
+.sec-no{background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.14);color:#0e7c86}
+.sec-row strong{color:#1a2733}
+.sec-row p{color:#5c6b76}
+.sec-len{color:#0e7c86}
+
+/* 三大枢纽 */
+.hubs-section{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
+.hubs-kicker{color:#0e7c86}
+.hubs-head h3{color:#1a2733}
+.hubs-sub{color:#5c6b76}
+.hubs-map{background:#eef2f4;border-color:rgba(15,40,60,.08)}
+.hubs-map-caption{background:rgba(255,255,255,.9);border-color:rgba(15,40,60,.1);color:#5c6b76}
+.hub-card{background:#fff;border-color:rgba(15,40,60,.08)}
+.hub-card:hover{border-color:rgba(14,124,134,.3)}
+.hub-no{color:#0e7c86}
+.hub-card h4{color:#1a2733}
+.hub-head-stat{color:#1a2733}
+.hub-head-stat small{color:#0e7c86}
+.hub-tech{background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.16);color:#0e7c86}
+.hub-facts li{border-bottom-color:rgba(15,40,60,.06);color:#5c6b76}
+.hub-facts strong{color:#1a2733}
+
+/* 工程奇迹 */
+.miracle-card{background:#fff;border-color:rgba(15,40,60,.08)}
+.miracle-card:hover{border-color:rgba(14,124,134,.25)}
+.miracle-num{color:#0e7c86}
+.miracle-card h3{color:#1a2733}
+.miracle-card p{color:#5c6b76}
+.miracle-stat{color:#1a2733}
+.miracle-stat small{color:#0e7c86}
+
+/* 沿线概况：X 光地形图 */
+.eb-head h3{color:#1a2733}
+.eb-head .eb-sub{color:#5c6b76}
+.eb-map{background:#fff;border-color:rgba(15,40,60,.08)}
+.eb-legend{border-top-color:rgba(15,40,60,.08)}
+.eb-legend span{color:#5c6b76}
+.eb-desc{color:#5c6b76}
+
+/* 五市信息卡 */
+.city-card{background:#fff;border-color:rgba(15,40,60,.08)}
+.city-card:hover{border-color:rgba(14,124,134,.25)}
+.city-card .city-no{color:#0e7c86}
+.city-card h4{color:#1a2733}
+.city-card .city-role{color:#7d8d99}
+.city-gdp{color:#1a2733}
+.city-gdp small{color:#0e7c86}
+.city-block .block-label{color:#0e7c86}
+.city-block p{color:#5c6b76}
+.city-industries span{background:rgba(14,124,134,.05);border-color:rgba(14,124,134,.12);color:#4a6b70}
+
+/* 灯箱 */
+.eb-lightbox{background:rgba(20,30,38,.9)}
+.eb-lightbox .lb-close{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.15);color:#fff}
+
+/* 沿线全景关系图入口 */
+.canal-trigger{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
+.canal-trigger:hover{border-color:rgba(14,124,134,.35);box-shadow:0 12px 36px rgba(15,40,60,.12)}
+.ct-icon{background:rgba(14,124,134,.08);border-color:rgba(14,124,134,.22);color:#0e7c86}
+.ct-text strong{color:#1a2733}
+.ct-text em{color:#5c6b76}
+.ct-arrow{color:#0e7c86}
+
+/* 模态框 */
+.canal-modal-mask{background:rgba(20,30,38,.55)}
+.modal-close{border-color:rgba(15,40,60,.15);background:#fff;color:#5c6b76}
+.modal-close:hover{color:#1a2733;border-color:rgba(14,124,134,.4);background:#fff}
+.canal-overview-map{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
+.com-kicker{color:#0e7c86}
+.com-head h3{color:#1a2733}
+.com-legend{color:#5c6b76}
+.com-map-stage{background:#f2f5f6;border-color:rgba(15,40,60,.08)}
+.com-info{background:#fff;border-color:rgba(15,40,60,.1);box-shadow:0 10px 32px rgba(15,40,60,.1)}
+.com-close{color:#7d8d99}
+.com-tag{background:rgba(14,124,134,.08);color:#0e7c86;border-color:rgba(14,124,134,.2)}
+.com-info h4{color:#1a2733}
+.com-role{color:#7d8d99}
+.com-stat{color:#1a2733}
+.com-stat small{color:#0e7c86}
+.com-label{color:#0e7c86}
+.com-industries span{background:rgba(14,124,134,.05);border-color:rgba(14,124,134,.12);color:#4a6b70}
+.com-desc{color:#5c6b76}
+.com-tab{border-color:rgba(15,40,60,.12);background:#f7f9fa;color:#5c6b76}
+.com-tab:hover{color:#0e7c86;background:rgba(14,124,134,.06);border-color:rgba(14,124,134,.25)}
+.com-disclaimer{color:#8a9aa3}
+
+/* SVG 里的浅色文字标签（沿线全景关系图） */
+.com-county-name{fill:#1a2733}
+.com-county-sub{fill:#7d8d99}
+.com-hub-name{fill:#7a4a2e}
+.com-hub-sub{fill:#8a9aa3}
+.com-node-name{fill:#1a2733}
+.com-node-sub{fill:#7d8d99}
+.com-city-name{fill:#6b4e12}
+.com-city-off .com-city-name{fill:#8a7a55}
+.com-city-sub{fill:#7d8d99}
+
+/* 战略价值 */
+.strategy-main{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
+.strategy-main h3{color:#1a2733}
+.strategy-main p{color:#5c6b76}
+.strategy-labels{color:#7d8d99}
+.strategy-number{color:#1a2733}
+.strategy-number small{color:#0e7c86}
+
+/* AI 板块 */
+.ai-intro,.ai-demo{background:#fff;border-color:rgba(15,40,60,.08);box-shadow:var(--shadow)}
+.ai-intro h3{color:#1a2733}
+.ai-intro p{color:#5c6b76}
+.ai-chip{background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.14);color:#0e7c86}
+.q-btn{border-color:rgba(15,40,60,.1);background:#f7f9fa;color:#4a5a66}
+.q-btn:hover{background:rgba(14,124,134,.06);color:#0e7c86}
+.chat-head{border-bottom-color:rgba(15,40,60,.08)}
+.chat-status{color:#0e7c86}
+.chat-message{background:#f2f5f6;border-color:rgba(15,40,60,.06);color:#3a4a55}
+.chat-message strong{color:#1a2733}
+.chat-action{background:#fff;border-color:rgba(15,40,60,.1);color:#5c6b76}
+.chat-input{border-top-color:rgba(15,40,60,.08)}
+.chat-input input{background:#f7f9fa;border-color:rgba(15,40,60,.12);color:#1a2733}
+.chat-input input::placeholder{color:#9aa7b0}
+.chat-input button{background:#0e7c86;color:#fff}
+.chat-message.user{background:rgba(14,124,134,.08);border-color:rgba(14,124,134,.16);color:#2a4a52}
+
+/* 建设历程 */
+.history-era{background:#fff;border-color:rgba(15,40,60,.08)}
+.history-era .era-tag{background:rgba(14,124,134,.07);border-color:rgba(14,124,134,.14);color:#0e7c86}
+.history-era h3{color:#1a2733}
+.history-era .era-sub{color:#7d8d99}
+.tl-item{border-left-color:rgba(15,40,60,.12)}
+.tl-date{color:#0e7c86}
+.tl-text{color:#5c6b76}
+.tl-text strong{color:#1a2733}
+
+/* 技术指标 */
+.spec{background:#f7f9fa;border-color:rgba(15,40,60,.07)}
+.spec span{color:#5c6b76}
+.spec strong{color:#1a2733}
+.spec strong small{color:#0e7c86}
+.spec em{color:#7d8d99}
+
+/* 页脚 */
+footer{border-top-color:rgba(15,40,60,.08);color:#7d8d99}
+.footer-mark{color:#d3dde2}
+.source-note{color:#7d8d99}
